@@ -99,7 +99,7 @@ SE_DF = pd.DataFrame(logsSE, columns=['Time', 'Type', 'Option_ID',
                                     'Side', 'Size', 'Price', 'Exchange',
                                     'MarketSize'])
 OM_DF = pd.DataFrame(logsOM, columns = ['Time', 'Type', 'Option_ID', 'Order_ID',
-                                        'Event_Type'])#
+                                        'Event_Type'])
 #Output to CSV files in the working directory
 SE_DF.to_csv('SE_Orders.csv')
 OM_DF.to_csv('OM_Orders.csv')
