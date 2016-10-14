@@ -1,0 +1,37 @@
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+ ,,,,,,,,,,
+No Flex,,,,Monthly Flex,,,,Hourly Flex,,
+,,,,,,,,,,
+Flat Rate,0.21,$/kWh,,January,0.20,$/kWh,,12AM until 1AM,0.10,$/kWh
+,,,,February,0.19,$/kWh,,1AM until 2AM,0.10,$/kWh
+,,,,March,0.17,$/kWh,,2AM until 3AM,0.10,$/kWh
+,,,,April,0.18,$/kWh,,3AM until 4AM,0.10,$/kWh
+,,,,May,0.22,$/kWh,,4AM until 5AM,0.15,$/kWh
+,,,,June,0.27,$/kWh,,5AM until 6AM,0.20,$/kWh
+,,,,July,0.24,$/kWh,,6AM until 7AM,0.24,$/kWh
+,,,,August,0.19,$/kWh,,7AM until 8AM,0.24,$/kWh
+,,,,September,0.18,$/kWh,,8AM until 9AM,0.26,$/kWh
+,,,,October,0.15,$/kWh,,9AM until 10AM,0.20,$/kWh
+,,,,November,0.14,$/kWh,,10AM until 11AM,0.20,$/kWh
+,,,,December,0.19,$/kWh,,11AM until 12PM,0.26,$/kWh
+,,,,,,,,12PM until 1PM,0.26,$/kWh
+,,,,,,,,1PM until 2PM,0.20,$/kWh
+,,,,,,,,2PM until 3PM,0.24,$/kWh
+,,,,,,,,3PM until 4PM,0.18,$/kWh
+,,,,,,,,4PM until 5PM,0.15,$/kWh
+,,,,,,,,5PM until 6PM,0.30,$/kWh
+,,,,,,,,6PM until 7PM,0.24,$/kWh
+,,,,,,,,7PM until 8PM,0.24,$/kWh
+,,,,,,,,8PM until 9PM,0.12,$/kWh
+,,,,,,,,9PM until 10PM,0.11,$/kWh
+,,,,,,,,10PM until 11PM,0.10,$/kWh
+,,,,,,,,11PM until 12AM,0.10,$/kWh
+,,,,,,,,,,
