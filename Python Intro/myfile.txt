@@ -1,0 +1,1 @@
+All the text will be gone except this sentence, since I used the 'w' method
