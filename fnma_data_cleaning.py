@@ -21,7 +21,7 @@ df['MaturityDate'] = pd.to_datetime(df['MaturityDate'].replace(r'       ', '01/1
 df['LTV'] = pd.to_numeric(df['LTV'], errors='coerce') / 100
 df['CLTV'] = pd.to_numeric(df['CLTV'], errors='coerce') / 100
 df['NumberofBorrowers'] = pd.to_numeric(df['NumberofBorrowers'], errors='coerce')
-df['DTI'] = pd.to_numeric(df['DTI'], errors='coerce')
+df['DTI'] = pd.to_numeric(df['DTI'], errors='coerce') / 100
 df['CreditScore'] = pd.to_numeric(df['CreditScore'], errors='coerce')
 # Categorical variable, 'YES', 'NO', '   ' gets replaced with 'NONE'
 df['FirstTimeHomeBuyerIndicator'] = df['FirstTimeHomeBuyerIndicator'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
@@ -58,10 +58,35 @@ df['LoanAgeasModification'] = pd.to_numeric(df['LoanAgeasModification'], errors 
 df['ModificationProgram'] = df['ModificationProgram'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 df['ModificationType'] = df['ModificationType'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 df['NumberofModifications'] = pd.to_numeric(df['NumberofModifications'], errors = 'coerce')
-
-
-
-
+df['TotalCapitalizedAmount'] = pd.to_numeric(df['TotalCapitalizedAmount'], errors = 'coerce')
+df['OriginalMortgageLoanUPB'] = pd.to_numeric(df['OriginalMortgageLoanUPB'], errors = 'coerce')
+#df['Filler'] --> Skip this one
+#df['CurrentDeferredUPB'] --> Skip this one for now, although maybe delete {'     ', 0.0, '0000000.00'}
+df['InterestRateStepIndicator'] = df['InterestRateStepIndicator'].str.strip().replace(r'', 'NA', regex=True).astype('category')
+df['InitialStepFixedRatePeriod'] = pd.to_numeric(df['InitialStepFixedRatePeriod'], errors = 'coerce')
+df['TotalNumberofSteps'] = pd.to_numeric(df['TotalNumberofSteps'], errors = 'coerce')
+df['NumberofRemainingSteps'] = pd.to_numeric(df['NumberofRemainingSteps'], errors = 'coerce')
+df['NextStepRate'] = df['NextStepRate'].str.strip().replace(r'', 'NA', regex=True).astype('category')
+df['TerminalStepRate'] = pd.to_numeric(df['TerminalStepRate'], errors = 'coerce')
+df['DateofTerminalStep'] = pd.to_datetime(df['DateofTerminalStep'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
+df['StepRateAdjustmentFrequency'] = df['StepRateAdjustmentFrequency'].str.strip().replace(r'', 'NULL', regex=True)
+df['MonthstoNextStepRateChange'] = df['MonthstoNextStepRateChange'].str.strip().replace(r'', 'NULL', regex=True)
+df['NextStepRateChangeDate'] = df['NextStepRateChangeDate'].str.strip().replace(r'', 'NULL', regex=True)
+df['PeriodicStepCapUpPercent'] = pd.to_numeric(df['PeriodicStepCapUpPercent'], errors = 'coerce')
+df['OriginationChannel'] = df['OriginationChannel'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+df['OriginationInterestRate'] = pd.to_numeric(df['OriginationInterestRate'], errors = 'coerce')
+df['OriginationUPB'] = pd.to_numeric(df['OriginationUPB'], errors = 'coerce')
+df['OriginationLoanTerm'] = pd.to_numeric(df['OriginationLoanTerm'], errors = 'coerce')
+df['OriginationFirstPaymentDate'] = pd.to_datetime(df['OriginationFirstPaymentDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
+df['OriginationMaturityDate'] = pd.to_datetime(df['OriginationMaturityDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
+df['OrginationLTV'] = pd.to_numeric(df['OrginationLTV'], errors='coerce') / 100
+df['OriginationCLTV'] = pd.to_numeric(df['OriginationCLTV'], errors='coerce') / 100
+df['OriginationDTI'] = pd.to_numeric(df['OriginationDTI'], errors='coerce') / 100
+df['OriginationCreditScore'] = pd.to_numeric(df['OriginationCreditScore'], errors='coerce')
+df['OriginationLoanPurpose'] = df['OriginationLoanPurpose'].str.strip().replace(r'', 'NULL', regex=True).astype('category')
+df['OriginationOccupancyStatus'] = df['OriginationOccupancyStatus'].str.strip().replace(r'', 'NULL', regex=True).astype('category')
+df['OriginationProductType'] = df['OriginationProductType'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+df['OriginationIOIndicator'] = df['OriginationIOIndicator'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 
 
 
