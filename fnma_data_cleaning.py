@@ -41,3 +41,30 @@ df['MortgageMargin'] = pd.to_numeric(df['MortgageMargin'], errors='coerce')
 df['NetMortgageMargin'] = pd.to_numeric(df['NetMortgageMargin'], errors='coerce')
 df['Index'] = df['Index'].str.strip().replace(r'', 'NULL', regex=True).astype('category')
 df['InterestRateLookBack'] = df['InterestRateLookBack'].str.strip().replace(r'', 'NULL', regex=True).astype('category')
+df['MaxInterestRate'] = pd.to_numeric(df['MaxInterestRate'], errors='coerce')
+df['NetMaximumInterestRate'] = pd.to_numeric(df['NetMaximumInterestRate'], errors='coerce')
+df['MonthstoNextRateChange'] = pd.to_numeric(df['MonthstoNextRateChange'], errors='coerce')
+df['NextRateChangeDate'] = pd.to_datetime(df['NextRateChangeDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
+df['RateAdjustmentFrequency'] = pd.to_numeric(df['RateAdjustmentFrequency'], errors='coerce')
+df['RateAdjustmentFrequency'] = pd.to_numeric(df['RateAdjustmentFrequency'], errors='coerce')
+df['InitialFixedRatePeriod'] = pd.to_numeric(df['InitialFixedRatePeriod'], errors='coerce')
+df['InitialRateCapUpPercent'] = pd.to_numeric(df['InitialRateCapUpPercent'], errors = 'coerce')
+df['InitialRateCapDownPercent'] = pd.to_numeric(df['InitialRateCapDownPercent'], errors = 'coerce')
+df['PeriodicCapUpPercent'] = pd.to_numeric(df['PeriodicCapUpPercent'], errors = 'coerce')
+f['PeriodicCapDownPercent'] = pd.to_numeric(df['PeriodicCapDownPercent'], errors = 'coerce')
+df['DaysDelinquent'] = pd.to_numeric(df['DaysDelinquent'], errors = 'coerce')
+df['LoanPerformanceHistory'] = df['LoanPerformanceHistory'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+df['LoanAgeasModification'] = pd.to_numeric(df['LoanAgeasModification'], errors = 'coerce')
+df['ModificationProgram'] = df['ModificationProgram'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+df['ModificationType'] = df['ModificationType'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+df['NumberofModifications'] = pd.to_numeric(df['NumberofModifications'], errors = 'coerce')
+
+
+
+
+
+
+
+
+
+
