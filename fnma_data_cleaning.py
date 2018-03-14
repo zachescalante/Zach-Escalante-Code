@@ -1,8 +1,15 @@
 # Edits for FNMA data set
-import numpy as np
-
-df['LoanCorrectionIndicator'] = df['LoanCorrectionIndicator'].replace(r'\s+', 0, regex=True).astype('category')
 # Replace blank strings with 'None', trim whitespace, and cast as categorical variable
+#df['Channel'] = df['Channel'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+# Replace blank strings with a null-style date (01/1900), convert all strings to datetime object
+#df['FirstPaymentDate'] = pd.to_datetime(df['FirstPaymentDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
+# Convert LTV to percent
+#df['LTV'] = pd.to_numeric(df['LTV'], errors='coerce') / 100
+# Categorical variable, 'YES', 'NO', '   ' gets replaced with 'NONE'
+#df['FirstTimeHomeBuyerIndicator'] = df['FirstTimeHomeBuyerIndicator'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
+
+######################################################################################################################################
+df['LoanCorrectionIndicator'] = df['LoanCorrectionIndicator'].replace(r'\s+', 0, regex=True).astype('category')
 df['Channel'] = df['Channel'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 df['SellerName'] = df['SellerName'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 df['ServicerName'] = df['ServicerName'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
@@ -12,18 +19,15 @@ df['CurrentNetInterestRate'] = pd.to_numeric(df['CurrentNetInterestRate'], error
 df['OUPB'] = pd.to_numeric(df['OUPB'], errors='coerce')
 df['CUPB'] = pd.to_numeric(df['CUPB'], errors='coerce')
 df['OriginalLoanTerm'] = pd.to_numeric(df['OriginalLoanTerm'], errors='coerce')
-# Replace blank strings with a null-style date (01/1900), convert all strings to datetime object
 df['FirstPaymentDate'] = pd.to_datetime(df['FirstPaymentDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
 df['LoanAge'] = pd.to_numeric(df['LoanAge'], errors='coerce')
 df['RemainingMTM'] = pd.to_numeric(df['RemainingMTM'], errors='coerce')
 df['MaturityDate'] = pd.to_datetime(df['MaturityDate'].replace(r'       ', '01/1900', regex=True), format='%m/%Y')
-# Convert LTV to percent
 df['LTV'] = pd.to_numeric(df['LTV'], errors='coerce') / 100
 df['CLTV'] = pd.to_numeric(df['CLTV'], errors='coerce') / 100
 df['NumberofBorrowers'] = pd.to_numeric(df['NumberofBorrowers'], errors='coerce')
 df['DTI'] = pd.to_numeric(df['DTI'], errors='coerce') / 100
 df['CreditScore'] = pd.to_numeric(df['CreditScore'], errors='coerce')
-# Categorical variable, 'YES', 'NO', '   ' gets replaced with 'NONE'
 df['FirstTimeHomeBuyerIndicator'] = df['FirstTimeHomeBuyerIndicator'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
 df['LoanPurpose'] = df['LoanPurpose'].str.strip().astype('category')
 df['PropertyType'] = df['PropertyType'].str.strip().replace(r'', 'NONE', regex=True).astype('category')
@@ -61,7 +65,7 @@ df['NumberofModifications'] = pd.to_numeric(df['NumberofModifications'], errors 
 df['TotalCapitalizedAmount'] = pd.to_numeric(df['TotalCapitalizedAmount'], errors = 'coerce')
 df['OriginalMortgageLoanUPB'] = pd.to_numeric(df['OriginalMortgageLoanUPB'], errors = 'coerce')
 #df['Filler'] --> Skip this one
-#df['CurrentDeferredUPB'] --> Skip this one for now, although maybe delete {'     ', 0.0, '0000000.00'}
+#df['CurrentDeferredUPB'] --> Skip this one for now, although maybe delete the column since the values are: {'     ', 0.0, '0000000.00'}
 df['InterestRateStepIndicator'] = df['InterestRateStepIndicator'].str.strip().replace(r'', 'NA', regex=True).astype('category')
 df['InitialStepFixedRatePeriod'] = pd.to_numeric(df['InitialStepFixedRatePeriod'], errors = 'coerce')
 df['TotalNumberofSteps'] = pd.to_numeric(df['TotalNumberofSteps'], errors = 'coerce')
