@@ -167,8 +167,8 @@ s = Session()
 result = s.execute("""COPY testtable 
                    FROM 's3://fnma/redshift.csv'
                    WITH CREDENTIALS 
-                   'aws_access_key_id=AKIAI2Q53VLWTEZYNTZA;
-                   aws_secret_access_key=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'
+                   'aws_access_key_id=xxxxxxxxx;
+                   aws_secret_access_key=xxxxxx'
                    REGION 'us-east-1'
                    CSV""")
 s.execute('rollback;')
