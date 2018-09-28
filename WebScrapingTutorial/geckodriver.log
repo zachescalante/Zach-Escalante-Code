@@ -824,3 +824,31 @@ JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_
 
 ###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C2,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
 
+1537910291777	geckodriver	INFO	Listening on 127.0.0.1:52726
+1537910292724	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.gJIkXPZL1Nr0
+1537910292725	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1537910292754	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52742
+1537910293469	Marionette	INFO	Listening on port 52742
+JavaScript error: https://www.rottentomatoes.com/, line 95: TypeError: this.iframe is null
+JavaScript warning: https://static.adsafeprotected.com/sca.17.4.95.js, line 1: SyntaxError: for-in loop head declarations may not have initializers
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22162: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22162: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://static.adsafeprotected.com/sca.17.4.95.js, line 1: SyntaxError: for-in loop head declarations may not have initializers
+JavaScript error: https://staticv2-4.rottentomatoes.com/static/dist/media-browser.js, line 4045: TypeError: location.state is undefined
+JavaScript warning: https://static.adsafeprotected.com/sca.17.4.95.js, line 1: SyntaxError: for-in loop head declarations may not have initializers
+JavaScript warning: https://static.adsafeprotected.com/sca.17.4.95.js, line 1: SyntaxError: for-in loop head declarations may not have initializers
+1537911742705	geckodriver	INFO	Listening on 127.0.0.1:61114
+1537911743631	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.GXrSCZJ3x5ce
+1537911743633	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1537911743635	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61129
+1537911744894	Marionette	INFO	Listening on port 61129
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-3589473, line 74: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-3589473, line 74: unreachable code after return statement
+1537912017135	geckodriver	INFO	Listening on 127.0.0.1:62940
+1537912018082	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.qP1F2ty91lUo
+1537912018084	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1537912018086	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62957
+1537912018776	Marionette	INFO	Listening on port 62957
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-3589473, line 74: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-3589473, line 74: unreachable code after return statement
