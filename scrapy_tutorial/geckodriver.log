@@ -364,3 +364,22 @@ JavaScript error: https://cdn.userreplay.net/us135201215f1d5f6bbcc9e4e3b705b5c00
 1538342775952	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
 1538342775955	geckodriver::marionette	INFO	Connecting to Marionette on localhost:49779
 1538342776601	Marionette	INFO	Listening on port 49779
+1538516089442	geckodriver	INFO	Listening on 127.0.0.1:57538
+1538516090387	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.wnp1ZeznZAJj
+1538516090389	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1538516090392	geckodriver::marionette	INFO	Connecting to Marionette on localhost:57551
+1538516091141	Marionette	INFO	Listening on port 57551
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=DC-2906542, line 73: unreachable code after return statement
+[Child 13516] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 13516] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
