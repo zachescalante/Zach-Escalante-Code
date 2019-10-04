@@ -1,0 +1,48 @@
+1570129886225	geckodriver	INFO	Listening on 127.0.0.1:50748
+1570129887157	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.tFvyPKCuBx0P
+1570129887159	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570129887175	geckodriver::marionette	INFO	Connecting to Marionette on localhost:50759
+1570129887877	Marionette	INFO	Listening on port 50759
+[Child 5570] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 5570] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1570129977054	geckodriver	INFO	Listening on 127.0.0.1:51111
+1570129978003	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.0j9G5qzEIlOQ
+1570129978006	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570129978008	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51122
+1570129978591	Marionette	INFO	Listening on port 51122
+[Child 5643] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 5643] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1570130119606	geckodriver	INFO	Listening on 127.0.0.1:51567
+1570130120559	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.BRKhYeZyis0y
+1570130120560	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570130120563	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51578
+1570130121200	Marionette	INFO	Listening on port 51578
+[Child 5769] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 684
+[Child 5769] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 5769] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1570130251702	geckodriver	INFO	Listening on 127.0.0.1:51923
+1570130252653	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.4LvsnyNv3CIe
+1570130252655	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570130252657	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51935
+1570130253253	Marionette	INFO	Listening on port 51935
+[Child 5879] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 5879] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1570130454221	geckodriver	INFO	Listening on 127.0.0.1:52698
+1570130455165	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.QaTGK1nTQF1P
+1570130455166	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570130455170	geckodriver::marionette	INFO	Connecting to Marionette on localhost:52709
+1570130455806	Marionette	INFO	Listening on port 52709
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+[Child 6076] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 6076] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1570131090070	geckodriver	INFO	Listening on 127.0.0.1:53743
+1570131091027	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.6cyNcHF20WYJ
+1570131091029	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570131091033	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53755
+1570131091681	Marionette	INFO	Listening on port 53755
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: chrome://marionette/content/listener.js, line 999: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+JavaScript error: chrome://marionette/content/listener.js, line 999: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.

@@ -1153,3 +1153,479 @@ JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_
 
 ###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C2,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
 
+1569507787767	geckodriver	INFO	Listening on 127.0.0.1:65218
+1569507788695	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.ZFXbA6yAYt5u
+1569507788697	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569507788720	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65239
+1569507789431	Marionette	INFO	Listening on port 65239
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://staticv2-4.rottentomatoes.com/static/dist/media-browser.js, line 3558: TypeError: location.state is undefined
+1569508156357	geckodriver	INFO	Listening on 127.0.0.1:51703
+1569508157303	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.HaPynJOmaHRb
+1569508157304	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569508157307	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51718
+1569508157803	Marionette	INFO	Listening on port 51718
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+1569508750793	geckodriver	INFO	Listening on 127.0.0.1:54593
+1569508751744	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.AmT47ouNt23y
+1569508751745	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569508751748	geckodriver::marionette	INFO	Connecting to Marionette on localhost:54608
+1569508752265	Marionette	INFO	Listening on port 54608
+1569508792958	geckodriver	INFO	Listening on 127.0.0.1:55035
+1569508793905	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.yXQjZVRdsgNt
+1569508793907	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569508793909	geckodriver::marionette	INFO	Connecting to Marionette on localhost:55050
+1569508794426	Marionette	INFO	Listening on port 55050
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/client/inspector/breadcrumbs.js, line 486: TypeError: this.handleMouseLeave is not a function
+1569508897228	geckodriver	INFO	Listening on 127.0.0.1:55755
+1569508898176	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.wtZASvPJQF6p
+1569508898177	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569508898179	geckodriver::marionette	INFO	Connecting to Marionette on localhost:55770
+1569508898690	Marionette	INFO	Listening on port 55770
+1569509437668	geckodriver	INFO	Listening on 127.0.0.1:58583
+1569509438613	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.xgEUQ5Bb8l2r
+1569509438614	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509438617	geckodriver::marionette	INFO	Connecting to Marionette on localhost:58598
+1569509439131	Marionette	INFO	Listening on port 58598
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/, line 24: ReferenceError: blocker is not defined
+1569509604009	geckodriver	INFO	Listening on 127.0.0.1:59771
+1569509604955	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.L3dj6DZk3IcU
+1569509604956	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509604959	geckodriver::marionette	INFO	Connecting to Marionette on localhost:59786
+1569509605570	Marionette	INFO	Listening on port 59786
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+JavaScript error: https://editorial.rottentomatoes.com/total-recall/, line 24: ReferenceError: blocker is not defined
+[Child 21431] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21431] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509628819	geckodriver	INFO	Listening on 127.0.0.1:60394
+1569509629714	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.ztYPske9MIhe
+1569509629715	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509629717	geckodriver::marionette	INFO	Connecting to Marionette on localhost:60409
+1569509630317	Marionette	INFO	Listening on port 60409
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+JavaScript error: https://editorial.rottentomatoes.com/rt-hubs/, line 24: ReferenceError: blocker is not defined
+[Child 21452] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21452] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509653553	geckodriver	INFO	Listening on 127.0.0.1:61007
+1569509654507	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.alM5gpFGK07e
+1569509654508	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509654511	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61022
+1569509655084	Marionette	INFO	Listening on port 61022
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+JavaScript error: https://editorial.rottentomatoes.com/news/, line 24: ReferenceError: blocker is not defined
+[Child 21468] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21468] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509678014	geckodriver	INFO	Listening on 127.0.0.1:61603
+1569509678969	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.XtK4VPtXfg5o
+1569509678970	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509678973	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61618
+1569509679562	Marionette	INFO	Listening on port 61618
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/opening/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/opening/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/opening/, line 24: ReferenceError: blocker is not defined
+[Child 21483] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21483] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509706380	geckodriver	INFO	Listening on 127.0.0.1:62402
+1569509707337	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.Pn0Oz1wHTh2C
+1569509707339	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509707342	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62417
+1569509707923	Marionette	INFO	Listening on port 62417
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/in-theaters/, line 24: ReferenceError: blocker is not defined
+[Child 21504] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21504] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509734431	geckodriver	INFO	Listening on 127.0.0.1:63266
+1569509735389	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.uQq2jM0K3dZM
+1569509735391	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509735394	geckodriver::marionette	INFO	Connecting to Marionette on localhost:63281
+1569509736037	Marionette	INFO	Listening on port 63281
+JavaScript error: https://www.rottentomatoes.com/browse/upcoming/, line 119: ReferenceError: require is not defined
+[Child 21524] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21524] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509748525	geckodriver	INFO	Listening on 127.0.0.1:63411
+1569509749424	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.fbcv63iVGDZT
+1569509749425	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509749428	geckodriver::marionette	INFO	Connecting to Marionette on localhost:63426
+1569509750503	Marionette	INFO	Listening on port 63426
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/tv-list-1, line 24: ReferenceError: blocker is not defined
+[Child 21534] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21534] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509775088	geckodriver	INFO	Listening on 127.0.0.1:64021
+1569509776045	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.C9VkNcKeBCPb
+1569509776047	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509776049	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64037
+1569509776691	Marionette	INFO	Listening on port 64037
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/tv-list-2, line 24: ReferenceError: blocker is not defined
+[Child 21550] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21550] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509802254	geckodriver	INFO	Listening on 127.0.0.1:64607
+1569509803202	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.nKlduvo06YD5
+1569509803203	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509803206	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64622
+1569509803715	Marionette	INFO	Listening on port 64622
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/top-dvd-streaming/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/top-dvd-streaming/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/top-dvd-streaming/, line 24: ReferenceError: blocker is not defined
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 21568] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21568] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509830170	geckodriver	INFO	Listening on 127.0.0.1:65413
+1569509831126	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.JvmAYyInx75J
+1569509831129	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509831132	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65428
+1569509831924	Marionette	INFO	Listening on port 65428
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript error: https://www.rottentomatoes.com/browse/cf-in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/cf-in-theaters/, line 24: ReferenceError: blocker is not defined
+JavaScript error: https://www.rottentomatoes.com/browse/cf-in-theaters/, line 24: ReferenceError: blocker is not defined
+[Child 21588] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21588] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509856960	geckodriver	INFO	Listening on 127.0.0.1:49810
+1569509857916	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.VxcQhGSOwt8q
+1569509857917	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509857920	geckodriver::marionette	INFO	Connecting to Marionette on localhost:49825
+1569509858501	Marionette	INFO	Listening on port 49825
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+JavaScript error: https://editorial.rottentomatoes.com/video-interviews/, line 24: ReferenceError: blocker is not defined
+[Child 21609] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21609] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569509879502	geckodriver	INFO	Listening on 127.0.0.1:50380
+1569509880456	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.B1bXFVlof51S
+1569509880458	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569509880461	geckodriver::marionette	INFO	Connecting to Marionette on localhost:50395
+1569509880977	Marionette	INFO	Listening on port 50395
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 24: ReferenceError: blocker is not defined
+[Child 21624] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 21624] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569608511719	geckodriver	INFO	Listening on 127.0.0.1:50442
+1569608512659	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.oxQnmr8JB6Zz
+1569608512660	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569608512663	geckodriver::marionette	INFO	Connecting to Marionette on localhost:50457
+1569608513318	Marionette	INFO	Listening on port 50457
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 37919] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 37919] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569609197594	geckodriver	INFO	Listening on 127.0.0.1:54490
+1569609198541	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.AGhYlz8hbk5d
+1569609198542	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569609198546	geckodriver::marionette	INFO	Connecting to Marionette on localhost:54505
+1569609199101	Marionette	INFO	Listening on port 54505
+1569609290709	geckodriver	INFO	Listening on 127.0.0.1:55033
+1569609291655	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.LW3xr7spKSbl
+1569609291656	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569609291659	geckodriver::marionette	INFO	Connecting to Marionette on localhost:55049
+1569609292182	Marionette	INFO	Listening on port 55049
+1569609517126	geckodriver	INFO	Listening on 127.0.0.1:56249
+1569609518073	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.2iN58MUFdBDm
+1569609518075	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569609518078	geckodriver::marionette	INFO	Connecting to Marionette on localhost:56269
+1569609518640	Marionette	INFO	Listening on port 56269
+1569610285625	geckodriver	INFO	Listening on 127.0.0.1:59901
+1569610286576	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.oygbgHCZCO7V
+1569610286577	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610286580	geckodriver::marionette	INFO	Connecting to Marionette on localhost:59916
+1569610287166	Marionette	INFO	Listening on port 59916
+JavaScript error: https://t.myvisualiq.net/impression_pixel?r=1705001700&et=i&ago=212&ao=546&aca=23019800&si=1781800&ci=122130922&pi=252307156&ad=452405048&advt=4470647&chnl=-7&vndr=115&sz=6586&u=pt=i, line 1: SyntaxError: illegal character
+1569610500184	geckodriver	INFO	Listening on 127.0.0.1:61124
+1569610501138	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.VTEeFeLLdqcv
+1569610501140	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610501143	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61139
+1569610501744	Marionette	INFO	Listening on port 61139
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+[Child 39053] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39053] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610525341	geckodriver	INFO	Listening on 127.0.0.1:61519
+1569610526295	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.hfOv4U4BrGYd
+1569610526296	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610526299	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61534
+1569610526911	Marionette	INFO	Listening on port 61534
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+[Child 39072] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39072] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610551001	geckodriver	INFO	Listening on 127.0.0.1:61938
+1569610551958	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.0j4bo3ie7fcf
+1569610551960	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610551962	geckodriver::marionette	INFO	Connecting to Marionette on localhost:61953
+1569610552615	Marionette	INFO	Listening on port 61953
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/news/, line 2464: TypeError: jQuery is not a function
+JavaScript error: https://editorial.rottentomatoes.com/news/, line 2503: TypeError: jQuery is not a function
+JavaScript error: https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js, line 166: Error: Script error for: rtmain
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://editorial.rottentomatoes.com/news/, line 1: TypeError: jQuery is not a function
+JavaScript error: https://editorial.rottentomatoes.com/news/, line 3: TypeError: b is not a function
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 39086] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39086] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610571841	geckodriver	INFO	Listening on 127.0.0.1:62296
+1569610572797	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.kWD8C4Ygtxeb
+1569610572799	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610572801	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62311
+1569610573369	Marionette	INFO	Listening on port 62311
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39101] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39101] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610596293	geckodriver	INFO	Listening on 127.0.0.1:62836
+1569610597254	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.GFq2Lhref8SN
+1569610597257	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610597262	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62851
+1569610597913	Marionette	INFO	Listening on port 62851
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39118] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39118] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610620916	geckodriver	INFO	Listening on 127.0.0.1:63436
+1569610621871	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.3zkvrkrpXHuj
+1569610621872	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610621875	geckodriver::marionette	INFO	Connecting to Marionette on localhost:63452
+1569610622561	Marionette	INFO	Listening on port 63452
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39133] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39133] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610650566	geckodriver	INFO	Listening on 127.0.0.1:64047
+1569610651524	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.VvjvOJI01hKw
+1569610651525	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610651528	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64062
+1569610652114	Marionette	INFO	Listening on port 64062
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39153] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39153] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610679397	geckodriver	INFO	Listening on 127.0.0.1:64466
+1569610680349	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.otUzZOul1c47
+1569610680351	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610680353	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64481
+1569610681000	Marionette	INFO	Listening on port 64481
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+JavaScript warning: https://static.adsafeprotected.com/sca.17.4.95.js, line 1: SyntaxError: for-in loop head declarations may not have initializers
+[Child 39172] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39172] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610709170	geckodriver	INFO	Listening on 127.0.0.1:64901
+1569610710125	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.cS7ycH0yGh5c
+1569610710126	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610710130	geckodriver::marionette	INFO	Connecting to Marionette on localhost:64916
+1569610711136	Marionette	INFO	Listening on port 64916
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39194] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39194] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610735731	geckodriver	INFO	Listening on 127.0.0.1:65498
+1569610736681	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.bBZr9av8dzvp
+1569610736682	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610736685	geckodriver::marionette	INFO	Connecting to Marionette on localhost:65513
+1569610737261	Marionette	INFO	Listening on port 65513
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://staticv2-4.rottentomatoes.com/static/dist/common-pure-react.js, line 22370: unreachable code after return statement
+JavaScript warning: https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.3/backbone.marionette.min.js, line 22: Using //@ to indicate sourceMappingURL pragmas is deprecated. Use //# instead
+[Child 39212] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39212] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610760898	geckodriver	INFO	Listening on 127.0.0.1:49669
+1569610761858	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.NRVKkrORT0Bl
+1569610761859	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610761862	geckodriver::marionette	INFO	Connecting to Marionette on localhost:49684
+1569610762456	Marionette	INFO	Listening on port 49684
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/wp-content/themes/RottenTomatoes/js/rtmain.js, line 336: TypeError: document.getElementById(...) is null
+[Child 39229] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39229] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+1569610788010	geckodriver	INFO	Listening on 127.0.0.1:50079
+1569610788945	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.r3bZULZZ2H8r
+1569610788947	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1569610788949	geckodriver::marionette	INFO	Connecting to Marionette on localhost:50094
+1569610789504	Marionette	INFO	Listening on port 50094
+JavaScript error: https://player.theplatform.com/pdk/dCK2IC/tpPdkController.js?pdk=5.7.5&logLevel=debug, line 227: TypeError: this.iframe.contentWindow is undefined
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 2367: TypeError: jQuery is not a function
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 2406: TypeError: jQuery is not a function
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 2415: TypeError: t is not a function
+JavaScript error: https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.js, line 166: Error: Script error for: rtmain
+http://requirejs.org/docs/errors.html#scripterror
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 1: TypeError: jQuery is not a function
+JavaScript error: https://editorial.rottentomatoes.com/publications/, line 3: TypeError: b is not a function
+[Child 39247] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+[Child 39247] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2056
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A011A,name=PContent::Msg_AsyncMessage) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript error: chrome://global/content/process-content.js, line 51: NS_ERROR_UNEXPECTED: Component returned failure code: 0x8000ffff (NS_ERROR_UNEXPECTED) [nsIMessageSender.sendAsyncMessage]
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2E0045,name=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][OnMaybeDequeueOne] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x4A00C2,name=PContent::Msg_ConsoleMessage) Channel closing: too late to send/recv, messages will be lost
+
