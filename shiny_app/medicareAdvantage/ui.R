@@ -12,10 +12,10 @@ library(shinydashboard)
 library(leaflet)
 
 vars <-
-  c("Total MA Eligible",
-    "Total MA Enrolled",
-    "Total MA-C Enrolled",
-    "Percent MA-C")
+  c("Total MA Market" = "value_1",
+    "MA Part C Market" = "value_2",
+    "Total MA-C Enrolled" = "value_3",
+    "Percent MA-C" = "value_4")
 
 header <- navbarPage(
   title = 'Medicare Advantage',
@@ -46,15 +46,18 @@ header <- navbarPage(
       h2("Medicare Advantage Part C"),
 
       selectizeInput(
-        'macroMarket', 'Select Demographic', choices = vars,
+        'value', 'Select Demographic', choices = vars,
         options = list(
-          placeholder = 'Please select an option below',
-          onInitialize = I('function() { this.setValue(""); }')
+          placeholder = 'Choose an option',
+          onInitialize = I('function() { this.setValue("value_1"); }')
         )
       )
     )
   ),
-  tabPanel('Length menu',        DT::dataTableOutput('ex2'))
+  tabPanel('Length menu',
+           textOutput("TestText"),
+           tableOutput("dataTable"),
+           DT::dataTableOutput('ex2'))
 )
 
 ui <- fluidPage(header)
