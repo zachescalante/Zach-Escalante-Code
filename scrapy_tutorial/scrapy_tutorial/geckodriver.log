@@ -46,3 +46,14 @@ JavaScript error: chrome://marionette/content/listener.js, line 999: NS_ERROR_FA
 JavaScript error: chrome://marionette/content/listener.js, line 999: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIWebProgress.removeProgressListener]
 JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
 JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+1570214306097	geckodriver	INFO	Listening on 127.0.0.1:62881
+1570214307027	mozprofile::profile	INFO	Using profile path /var/folders/9d/8y3cq4456gv0_ysndlsmtwqm0000gn/T/rust_mozprofile.DYmQS4ka8twA
+1570214307028	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin
+1570214307032	geckodriver::marionette	INFO	Connecting to Marionette on localhost:62896
+1570214307746	Marionette	INFO	Listening on port 62896
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: , line 0: uncaught exception: The prodid value must be within 1 to 50 characters.
+JavaScript error: chrome://marionette/content/listener.js, line 870: TypeError: can't access dead object
+[Child 40445] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 684
+[Child 40445] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 684

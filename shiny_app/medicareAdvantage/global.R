@@ -21,6 +21,10 @@ us.map.county <- us.map.county[!us.map.county$STATEFP %in% c("81", "84", "86", "
 simplified_shp <- gSimplify(us.map.county, tol = 0.0125, topologyPreserve = FALSE)
 simplified <- SpatialPolygonsDataFrame(simplified_shp, data = us.map.county@data)
 
+# Figure out a way to use this CSV import to generate a list of States/FIPS codes
+#statesFIPS <- read.csv(file="statesFIPS.csv", header=TRUE, sep=",")
+#statesFIPS$label = paste(statesFIPS$labels, statesFIPS$values, sep=", ")
+
 #format(object.size(simplified), units = "Mb")
 ### Create color scheme
 pal <- colorQuantile("Reds", NULL, n = 9)

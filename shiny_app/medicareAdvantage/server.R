@@ -12,14 +12,14 @@ library(shiny)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   
-  output$TestText <- renderText({input$value})
+  output$TestText <- renderText({input$state})
   output$dataTable <- renderTable({
     mydf[, input$value, drop = TRUE]
   })
   
   output$myMap <- renderLeaflet({
     leaflet() %>%
-      setView(-96, 37.8, 4) %>%
+      setView(mean(coordinates(simplified)[,1]), mean(coordinates(simplified)[,2]), 4) %>%
       # This is where we adjust the basemap graphics
       addProviderTiles("OpenStreetMap.Mapnik") %>%
       addPolygons(data = simplified,
@@ -32,4 +32,16 @@ shinyServer(function(input, output) {
                                 #"Value: ", input$value, "<br>"))
   })
   
+  output$stateMap <- renderLeaflet({
+    leaflet() %>%
+      setView(mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,1]), 
+                mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,2]), 
+                7) %>%
+      # This is where we adjust the basemap graphics
+      addProviderTiles("OpenStreetMap.Mapnik") %>%
+      addPolygons(data = simplified[ which(simplified$STATEFP==input$state), ])
+  })
+  
 })
+
+
