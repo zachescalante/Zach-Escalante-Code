@@ -33,10 +33,15 @@ shinyServer(function(input, output) {
   })
   
   output$stateMap <- renderLeaflet({
+    req(input$state)
     leaflet() %>%
-      setView(mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,1]), 
-                mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,2]), 
-                7) %>%
+      fitBounds(lng1 = min(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,1]), 
+                lat1 = min(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,2]), 
+                lng2 = max(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,1]), 
+                lat2 = max(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,2])) %>%
+      #setView(mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,1]), 
+      #          mean(coordinates(simplified[ which(simplified$STATEFP==input$state), ])[,2]), 
+      #          6) %>%
       # This is where we adjust the basemap graphics
       addProviderTiles("OpenStreetMap.Mapnik") %>%
       addPolygons(data = simplified[ which(simplified$STATEFP==input$state), ])
