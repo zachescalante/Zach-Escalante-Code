@@ -113,8 +113,7 @@ header <- navbarPage(
     )
   ),
   tabPanel(
-    'Length menu',
-    textOutput("TestText"),
+    'Analysis by State',
     leafletOutput("stateMap", width = "110vw", height = "100vh"),
     absolutePanel(
       id = 'controls',

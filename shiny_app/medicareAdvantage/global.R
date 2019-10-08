@@ -3,11 +3,13 @@
 #install.packages("shinydashboard")
 #install.packages("DT")
 #install.packages("rgeos")
+#install.packages("viridis")
 
 library(leaflet)
 library(rgdal)
 library(DT)
 library(rgeos)
+library(viridis)
 
 # Read in the county shape files
 us.map.county <- readOGR(dsn= './cb_2018_us_county_500k', layer = "cb_2018_us_county_500k", stringsAsFactors = FALSE)
@@ -27,7 +29,8 @@ simplified <- SpatialPolygonsDataFrame(simplified_shp, data = us.map.county@data
 
 #format(object.size(simplified), units = "Mb")
 ### Create color scheme
-pal <- colorQuantile("Reds", NULL, n = 9)
+#pal <- colorQuantile("Reds", NULL, n = 9)
+#pal <- colorQuantile(viridis(n=10))
 #pal <- colorNumeric(c("red", "green", "blue"), n=20)
 
 ### Create dummy data

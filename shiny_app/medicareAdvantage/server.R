@@ -17,6 +17,10 @@ shinyServer(function(input, output) {
     mydf[, input$value, drop = TRUE]
   })
   
+  pal <- reactive({
+    colorQuantile("inferno",mydf[, input$value, drop = TRUE], n = 9)
+  })
+  
   output$myMap <- renderLeaflet({
     leaflet() %>%
       setView(mean(coordinates(simplified)[,1]), mean(coordinates(simplified)[,2]), 4) %>%
@@ -24,7 +28,7 @@ shinyServer(function(input, output) {
       addProviderTiles("OpenStreetMap.Mapnik") %>%
       addPolygons(data = simplified,
                   # mydf$value will be the variable passed from the user dropdown menu in Shiny
-                  fillColor = ~pal(mydf[, input$value, drop = TRUE]),
+                  fillColor = ~pal()(mydf[, input$value, drop = TRUE]),
                   stroke = FALSE,
                   smoothFactor = 0.2,
                   fillOpacity = 0.3,
