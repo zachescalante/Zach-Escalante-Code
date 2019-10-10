@@ -10,10 +10,10 @@
 library(shiny)
 
 # Define server logic required to draw a histogram
-shinyServer(function(input, output) {
-  output$TestText <- renderText({
-    input$state
-  })
+shinyServer(function(input, output, session) {
+
+  
+  ######## REACTIVE OBJECTS ########
   
   pal <- reactive({
     colorQuantile("Reds", stateData()[, input$value, drop = TRUE], n=9)
@@ -24,9 +24,43 @@ shinyServer(function(input, output) {
       filter(County == 'TOTAL' & Year == input$year_us & Month == input$month_us)
   })
   
-  output$tbl2 <- DT::renderDataTable({
-    DT::datatable(as.data.frame(merge(us.map.state, stateData()[,c("State", input$value), drop = TRUE], by.x = "NAME", by.y = "State")))
+  observeEvent(input$scale, {
+    if (input$scale == "Percent") {
+      x <- c(
+        "ORIGINAL MEDICARE" = "OrigMedicare_perc",
+        "MA-C & OTHER" = "MedAdvOther_perc",
+        "TOTAL MEDICARE" = "MedicareTotal_perc"
+      )
+    } else {
+      x <- c(
+        "ORIGINAL MEDICARE" = "OriginalMedicare",
+        "MA-C & OTHER" = "MedAdvOther",
+        "TOTAL MEDICARE" = "MedicareTotal"
+        )
+    }
+    
+    updateSelectizeInput(session, "value",
+                         choices = x,
+                         server = TRUE)
   })
+  
+  ######## TEST OBJECTS ########
+  
+  output$tbl2 <- DT::renderDataTable({
+    
+    df <- stateData()[,c("State", input$value), drop = TRUE]
+    
+    DT::datatable(df,
+                  options = list(pageLength = 8, dom = 'rtip')) %>%
+      formatStyle( 0, target= 'row',color = 'black', lineHeight='60%') %>%
+      formatCurrency( input$value, currency = "", interval = 3, mark = ",")
+  })
+  
+  output$TestText <- renderText({
+    input$state
+  })
+  
+  ######## LEAFLET MAPS ########
   
   output$myMap <- renderLeaflet({
     
@@ -64,19 +98,20 @@ shinyServer(function(input, output) {
       addPolygons(data = simplified_county[which(simplified_county$STATEFP == input$state),])
   })
   
+  ######## GRAPHS AND PLOTS ########
   
   # Test barplot 1
   output$totalMarket <- renderPlot({
     state_total <- stateData() %>%
       arrange_at(desc(stateData()[, input$value, drop = TRUE]))
     
-    top_10 <- tail(stateData()[, input$value, drop = TRUE], n = 10)
+    top_10 <- tail(stateData()[,input$value, drop = TRUE], n = 10)
     labels <- tail(stateData()[, 1, drop = TRUE], n = 10)
     
     # Render a barplot
     par(mar=c(7,5,1,1))
     barplot(
-      top_10,
+      as.numeric(top_10),
       main = "Total Market",
       xlab = "",
       col = wes_palette(11),
@@ -87,6 +122,7 @@ shinyServer(function(input, output) {
   
   # Test barplot 2
   output$totalPercent <- renderPlot({
+    req(input$value)
     top_10 <- tail(mydf[, input$value, drop = TRUE], n = 10)
     labels <- tail(mydf[, "place", drop = TRUE], n = 10)
     

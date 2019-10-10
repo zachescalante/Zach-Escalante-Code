@@ -15,8 +15,7 @@ vars <-
   c(
     "ORIGINAL MEDICARE" = "OriginalMedicare",
     "MA-C & OTHER" = "MedAdvOther",
-    "TOTAL MEDICARE" = "MedicareTotal",
-    "Medicare Part D" = "value_4"
+    "TOTAL MEDICARE" = "MedicareTotal"
   )
 
 month <-
@@ -113,7 +112,7 @@ navbarPage(
         left = "auto",
         right = 20,
         bottom = "auto",
-        width = 350,
+        width = 425,
         height = "auto",
         
         h4("Medicare Market Analysis"),
@@ -150,11 +149,10 @@ navbarPage(
           choices = vars,
           options = list(
             placeholder = 'Choose an option',
-            onInitialize = I('function() { this.setValue("MedicareTotal"); }')
+            onInitialize = I('function() { this.setValue(""); }')
           )
         ),
-        
-        plotOutput("totalMarket", height = 300, width = 300),
+        plotOutput("totalMarket", height = 250, width = 300),
         DT::dataTableOutput('tbl2')
       )
     )

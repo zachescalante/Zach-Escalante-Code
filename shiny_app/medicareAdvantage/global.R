@@ -62,5 +62,10 @@ df <- read_excel("./data/enrollment_data.xlsx", sheet = 3, skip = 5)
 colnames(df) <- c("Year", "Month", "State", "County", "OriginalMedicare", "MedAdvOther", "MedicareTotal",
                   "PrescriptionDrug", "MedAdvPresDrug", "PresDrugTotal")
 
+df <- transform(df, OrigMedicare_perc = as.integer(100*OriginalMedicare / MedicareTotal))
+df <- transform(df, MedAdvOther_perc = as.integer(100*MedAdvOther / MedicareTotal))
+df <- transform(df, MedicareTotal_perc = 100*MedicareTotal / MedicareTotal)
+
+
 df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 
