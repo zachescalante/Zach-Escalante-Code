@@ -13,10 +13,26 @@ library(leaflet)
 
 vars <-
   c(
-    "Total MA Market" = "value_1",
-    "MA Part C Market" = "value_2",
-    "Total MA-C Enrolled" = "value_3",
-    "Percent MA-C" = "value_4"
+    "ORIGINAL MEDICARE" = "OriginalMedicare",
+    "MA-C & OTHER" = "MedAdvOther",
+    "TOTAL MEDICARE" = "MedicareTotal",
+    "Medicare Part D" = "value_4"
+  )
+
+month <-
+  c(
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
   )
 
 states <-
@@ -73,42 +89,73 @@ states <-
     "Wyoming" = "56"
   )
 
-header <- navbarPage(
-  title = 'Medicare Advantage',
+navbarPage(
+  "Medicare Advantage",
+  id = "nav",
+  
   tabPanel(
-    'Macro Anaysis',
-    
-    div(class = "outer",
-        tags$head(
-          # Include our custom CSS
-          includeCSS("style.css"),
-          includeScript("gomap.js")
-        )),
-    
-    #tags$style(type = "text/css", "#myMap {width: 100vw !important; height: calc(100vh - 44px) !important;}"),
-    leafletOutput("myMap", width = "110vw", height = "100vh"),
-    
-    absolutePanel(
-      id = "controls",
-      class = "panel panel-default",
-      fixed = TRUE,
-      draggable = TRUE,
-      top = 80,
-      left = "auto",
-      right = 80,
-      bottom = "auto",
-      width = 330,
-      height = "auto",
-      h2("Medicare Advantage Part C"),
+    "Macro Analysis",
+    div(
+      class = "outer",
       
-      selectizeInput(
-        'value',
-        'Select Demographic',
-        choices = vars,
-        options = list(
-          placeholder = 'Choose an option',
-          onInitialize = I('function() { this.setValue("value_1"); }')
-        )
+      tags$head(# Include our custom CSS
+        includeCSS("style.css"),
+        includeScript("gomap.js")),
+      
+      leafletOutput("myMap", width = "100%", height = "100%"),
+      
+      absolutePanel(
+        id = "controls",
+        class = "panel panel-default",
+        fixd = TRUE,
+        draggable = TRUE,
+        top = 60,
+        left = "auto",
+        right = 20,
+        bottom = "auto",
+        width = 350,
+        height = "auto",
+        
+        h4("Medicare Market Analysis"),
+        radioButtons(
+          inputId = "scale",
+          label = "Type",
+          choices = c("Count", "Percent"),
+          inline = TRUE
+        ),
+        
+        selectizeInput(
+          'year_us',
+          'Select year',
+          choices = c("2018", "2019"),
+          options = list(
+            placeholder = 'Choose an option',
+            onInitialize = I('function() { this.setValue("2019"); }')
+          )
+        ),
+        
+        selectizeInput(
+          'month_us',
+          'Select Month',
+          choices = month,
+          options = list(
+            placeholder = 'Choose an option',
+            onInitialize = I('function() { this.setValue("January"); }')
+          )
+        ),
+        
+        selectizeInput(
+          'value',
+          'Select Demographic',
+          choices = vars,
+          options = list(
+            placeholder = 'Choose an option',
+            onInitialize = I('function() { this.setValue("MedicareTotal"); }')
+          )
+        ),
+        
+        plotOutput("totalMarket", height = 300, width = 300),
+        DT::dataTableOutput('tbl2')
       )
     )
   ),
@@ -142,4 +189,4 @@ header <- navbarPage(
   DT::dataTableOutput('ex2')
 )
 
-ui <- fluidPage(header)
+#ui <- fluidPage(header)
