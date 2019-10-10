@@ -62,5 +62,5 @@ df <- read_excel("./data/enrollment_data.xlsx", sheet = 3, skip = 5)
 colnames(df) <- c("Year", "Month", "State", "County", "OriginalMedicare", "MedAdvOther", "MedicareTotal",
                   "PrescriptionDrug", "MedAdvPresDrug", "PresDrugTotal")
 
-df <- merge(df, us.map.state, by.x="State", by.y="NAME")
+df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 

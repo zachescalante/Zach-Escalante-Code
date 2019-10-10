@@ -16,7 +16,7 @@ shinyServer(function(input, output) {
   })
   
   pal <- reactive({
-    colorQuantile("Reds", test_df[, input$value, drop = TRUE], n=9)
+    colorQuantile("Reds", stateData()[, input$value, drop = TRUE], n=9)
   })
   
   stateData <- reactive({
