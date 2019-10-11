@@ -113,7 +113,7 @@ shinyServer(function(input, output, session) {
     par(mar=c(7,5,1,1))
     barplot(
       as.numeric(top_10),
-      main = "Total Market",
+      main = "",
       xlab = "",
       col = wes_palette(11),
       names.arg = labels,

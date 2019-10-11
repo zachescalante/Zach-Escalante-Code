@@ -102,18 +102,18 @@ navbarPage(
         includeScript("gomap.js")),
       
       leafletOutput("myMap", width = "100%", height = "100%"),
-      
+    
       absolutePanel(
         id = "controls",
         class = "panel panel-default",
-        fixd = TRUE,
+        fixed = TRUE,
         draggable = TRUE,
         top = 60,
         left = "auto",
-        right = 20,
+        right = 10,
         bottom = "auto",
-        width = 425,
-        height = "auto",
+        width = 300,
+        height = 560,#"auto",
         
         h4("Medicare Market Analysis"),
         radioButtons(
@@ -152,8 +152,8 @@ navbarPage(
             onInitialize = I('function() { this.setValue(""); }')
           )
         ),
-        plotOutput("totalMarket", height = 250, width = 300),
-        DT::dataTableOutput('tbl2')
+        plotOutput("totalMarket", height = 230, width = 250),
+        div(DT::dataTableOutput('tbl2'), style = "font-size: 75%; width: 75%")
       )
     )
   ),
@@ -164,12 +164,12 @@ navbarPage(
       id = 'controls',
       class = "panel panel-default",
       fixed = TRUE,
-      draggable = TRUE,
+      draggable = FALSE,
       top = 80,
       left = "auto",
       right = 80,
       bottom = "auto",
-      width = 330,
+      width = 100,
       height = "auto",
       h2("Select State"),
       selectizeInput(
