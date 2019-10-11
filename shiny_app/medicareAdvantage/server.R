@@ -47,7 +47,7 @@ shinyServer(function(input, output, session) {
   ######## TEST OBJECTS ########
   
   output$tbl2 <- DT::renderDataTable({
-    
+    req(input$value)
     df <- stateData()[,c("State", input$value), drop = TRUE]
     
     DT::datatable(df,
@@ -63,7 +63,7 @@ shinyServer(function(input, output, session) {
   ######## LEAFLET MAPS ########
   
   output$myMap <- renderLeaflet({
-    
+    req(input$value)
     medicare_market <- merge(us.map.state, stateData()[,c("State", input$value), drop = TRUE], by.x = "NAME", by.y = "State")
     
     leaflet() %>%
@@ -102,6 +102,7 @@ shinyServer(function(input, output, session) {
   
   # Test barplot 1
   output$totalMarket <- renderPlot({
+    req(input$value)
     state_total <- stateData() %>%
       arrange_at(desc(stateData()[, input$value, drop = TRUE]))
     
