@@ -102,7 +102,54 @@ navbarPage(
         includeScript("gomap.js")),
       
       leafletOutput("myMap", width = "100%", height = "100%"),
-    
+      
+      ######## ABSOLUTE PANELS ########
+      
+      ######## PANEL: TAB 1, LHS ########
+
+        absolutePanel(
+          id = "controls",
+          class = "panel panel-default",
+          fixed = TRUE,
+          draggable = TRUE,
+          top = 65,
+          left = 55,
+          right = "auto",
+          bottom = "auto",
+          width = 330,
+          height = 560,
+          
+          h4("State Level Analysis"),
+          radioButtons(
+            inputId = "scale_state",
+            label = "Type",
+            choices = c("Count", "Percent"),
+            inline = TRUE
+          ),
+          
+          selectizeInput(
+            'market_state',
+            'Select Demographic',
+            choices = vars,
+            options = list(
+              placeholder = 'Choose an option',
+              onInitialize = I('function() { this.setValue(""); }')
+            )
+          ),
+          selectizeInput(
+            'select_state',
+            'Select State',
+            choices = states,
+            options = list(
+              placeholder = 'Choose an option',
+              onInitialize = I('function() { this.setValue(""); }')
+            )
+          ),
+          #textOutput("TestText"),
+          div(DT::dataTableOutput('state_ts_tbl'), style = "font-size: 75%; width: 75%")
+        ),
+      
+      ######## PANEL: TAB 1, RHS ########
       absolutePanel(
         id = "controls",
         class = "panel panel-default",
@@ -112,7 +159,7 @@ navbarPage(
         left = "auto",
         right = 10,
         bottom = "auto",
-        width = 300,
+        width = 330,
         height = 560,#"auto",
         
         h4("Medicare Market Analysis"),
@@ -173,7 +220,7 @@ navbarPage(
       height = "auto",
       h2("Select State"),
       selectizeInput(
-        "state",
+        "state_test",
         'Select State',
         choices = states,
         options = list(
