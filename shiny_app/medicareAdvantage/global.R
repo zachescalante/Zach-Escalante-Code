@@ -69,8 +69,5 @@ df <- transform(df, MedicareTotal_perc = 100*MedicareTotal / MedicareTotal)
 
 df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 
-test <- df %>%
-  filter(County == 'TOTAL' & State == "Alabama")
 
-colnames(test)
 

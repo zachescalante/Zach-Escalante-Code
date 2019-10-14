@@ -208,19 +208,22 @@ navbarPage(
     'Analysis by State',
     leafletOutput("stateMap", width = "110vw", height = "100vh"),
     absolutePanel(
-      id = 'controls',
+      id = "controls",
       class = "panel panel-default",
       fixed = TRUE,
-      draggable = FALSE,
-      top = 80,
-      left = "auto",
-      right = 80,
+      draggable = TRUE,
+      top = 65,
+      left = 55,
+      right = "auto",
       bottom = "auto",
-      width = 100,
-      height = "auto",
+      width = 330,
+      height = 560,
+      
       h2("Select State"),
+      textOutput("TestText"),
+      
       selectizeInput(
-        "state_test",
+        "state",
         'Select State',
         choices = states,
         options = list(

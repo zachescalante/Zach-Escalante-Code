@@ -14,7 +14,7 @@ shinyServer(function(input, output, session) {
   ######## REACTIVE OBJECTS ########
   
   pal <- reactive({
-    colorQuantile("Reds", stateData()[, input$value, drop = TRUE], n = 9)
+    colorQuantile("viridis", stateData()[, input$value, drop = TRUE], n = 9)
   })
   
   stateData <- reactive({
@@ -109,7 +109,7 @@ shinyServer(function(input, output, session) {
   })
   
   output$TestText <- renderText({
-    colnames(df)
+    input$state
   })
   
   ######## LEAFLET MAPS ########
@@ -154,8 +154,8 @@ shinyServer(function(input, output, session) {
                                                          input$state), ])[, 1]),
         lat2 = max(coordinates(simplified_county[which(simplified_county$STATEFP ==
                                                          input$state), ])[, 2])
-      )
-    addProviderTiles("Hydda.Base") %>%
+      ) %>%
+    addProviderTiles("Esri.WorldGrayCanvas") %>%
       addPolygons(data = simplified_county[which(simplified_county$STATEFP == input$state), ])
   })
   
