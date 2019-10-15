@@ -28,6 +28,13 @@ shinyServer(function(input, output, session) {
       filter(County == 'TOTAL' & GEOID == input$select_state)
   })
   
+  county_ts <- reactive({
+    req(input$state_tab2)
+    df_county %>%
+      filter(State_FIPS == input$state_tab2 & FIPS == input$county_tab2)
+  })
+  
+  
   #### PANEL: TAB 1, RHS, INPUT: "TYPE", UPDATE: "SELECT DEMOGRAPHIC" #####
   observeEvent(input$scale, {
     if (input$scale == "Percent") {
@@ -65,6 +72,18 @@ shinyServer(function(input, output, session) {
     
     updateSelectizeInput(session, "market_state",
                          choices = y,
+                         server = TRUE)
+  })
+  
+  #### PANEL: TAB 2, LHS, INPUT: "state_tab2", UPDATE: "county_tab2" #####
+  observeEvent(input$state_tab2, {
+    df_county_update <- df_county %>%
+      filter(State_FIPS == input$state_tab2)
+    
+    df_county_update <- unique(df_county_update$FIPS)
+    
+    updateSelectizeInput(session, "county_tab2",
+                         choices = unique(df_county_update),
                          server = TRUE)
   })
   
@@ -108,6 +127,11 @@ shinyServer(function(input, output, session) {
       )
   })
   
+  output$tbl_county <- DT::renderDataTable({
+    req(input$state_tab2)
+    DT::datatable(county_ts())
+  })
+  
   output$TestText <- renderText({
     input$state
   })
@@ -144,19 +168,19 @@ shinyServer(function(input, output, session) {
   })
   
   output$stateMap <- renderLeaflet({
-    req(input$state)
+    req(input$state_tab2)
     leaflet() %>%
       fitBounds(
-        lng1 = min(coordinates(simplified_county[which(simplified_county$STATEFP == input$state), ])[, 1]),
-        lat1 = min(coordinates(simplified_county[which(simplified_county$STATEFP ==
-                                                         input$state), ])[, 2]),
-        lng2 = max(coordinates(simplified_county[which(simplified_county$STATEFP ==
-                                                         input$state), ])[, 1]),
-        lat2 = max(coordinates(simplified_county[which(simplified_county$STATEFP ==
-                                                         input$state), ])[, 2])
+        lng1 = min(coordinates(us.map.county[which(us.map.county$STATEFP == input$state_tab2), ])[, 1]),
+        lat1 = min(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                         input$state_tab2), ])[, 2]),
+        lng2 = max(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                         input$state_tab2), ])[, 1]),
+        lat2 = max(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                         input$state_tab2), ])[, 2])
       ) %>%
     addProviderTiles("Esri.WorldGrayCanvas") %>%
-      addPolygons(data = simplified_county[which(simplified_county$STATEFP == input$state), ])
+      addPolygons(data = us.map.county[which(us.map.county$STATEFP == input$state_tab2), ])
   })
   
   ######## GRAPHS AND PLOTS ########
@@ -195,6 +219,27 @@ shinyServer(function(input, output, session) {
       xlab = "",
       col = viridis(10),
       names.arg = labels,
+      las = 2
+    )
+  })
+  
+  #### TAB 2: LHS, TOP_10_COUNTY #####
+  output$TOP_10_COUNTY <- renderPlot({
+    req(input$state_tab2)
+    
+    top_10_payers = head(county_ts()[ order(county_ts()[[5]], decreasing = TRUE),], 10)[[5]]
+    labels_payers = head(county_ts()[ order(county_ts()[[4]], decreasing = TRUE),], 10)[[4]]
+    #top_10_payers <- head(county_ts()[, 5, drop = TRUE], n = 10)
+    #labels_payers <- head(county_ts()[, 4, drop = TRUE], n = 10)
+    
+    # Render a barplot
+    par(mar = c(15, 5, 1, 1))
+    barplot(
+      as.numeric(top_10_payers),
+      main = "",
+      xlab = "",
+      col = wes_palette(11),
+      names.arg = labels_payers,
       las = 2
     )
   })

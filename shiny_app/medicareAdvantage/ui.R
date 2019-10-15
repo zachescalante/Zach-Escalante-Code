@@ -220,21 +220,29 @@ navbarPage(
       height = 560,
       
       h2("Select State"),
-      textOutput("TestText"),
       
       selectizeInput(
-        "state",
+        'state_tab2',
         'Select State',
         choices = states,
         options = list(
           placeholder = "Choose an option",
           onInitialize = I('function() { this.setValue(""); }')
         )
-      )
+      ),
+      selectizeInput(
+        "county_tab2",
+        'Select County',
+        choices = c("county A", "county B"),
+        options = list(
+          placeholder = "Choose an option",
+          onInitialize = I('function() { this.setValue(""); }')
+        )
+      ),
+      plotOutput("TOP_10_COUNTY", height = 300, width = 250)
     )
   ),
-  tableOutput("dataTable"),
-  DT::dataTableOutput('ex2')
+  DT::dataTableOutput('tbl_county')
 )
 
 #ui <- fluidPage(header)

@@ -69,5 +69,8 @@ df <- transform(df, MedicareTotal_perc = 100*MedicareTotal / MedicareTotal)
 
 df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 
+#Import the county enrollment data
+df_county <- read_excel("./data/county_payer_statistics.xlsx")
+
 
 
