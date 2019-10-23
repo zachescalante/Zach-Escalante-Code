@@ -223,9 +223,13 @@ shinyServer(function(input, output, session) {
     )
   })
   
+  
   #### TAB 2: LHS, TOP_10_COUNTY #####
+  
+  
   output$TOP_10_COUNTY <- renderPlot({
-    req(input$state_tab2)
+    #req(input$state_tab2,cancelOutput = TRUE)
+    #req(input$state_tab2)
     
     top_10_payers = head(county_ts()[ order(county_ts()[[5]], decreasing = TRUE),], 10)[[5]]
     labels_payers = head(county_ts()[ order(county_ts()[[4]], decreasing = TRUE),], 10)[[4]]
@@ -234,6 +238,8 @@ shinyServer(function(input, output, session) {
     
     # Render a barplot
     par(mar = c(15, 5, 1, 1))
+    #req(as.numeric(top_10_payers))
+    if(req(as.numeric(top_10_payers))){
     barplot(
       as.numeric(top_10_payers),
       main = "",
@@ -241,7 +247,9 @@ shinyServer(function(input, output, session) {
       col = wes_palette(11),
       names.arg = labels_payers,
       las = 2
-    )
+    )}
+    
+    
   })
   
 })
