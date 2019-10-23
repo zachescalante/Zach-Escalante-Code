@@ -240,7 +240,10 @@ navbarPage(
         )
       ),
       plotOutput("TOP_10_COUNTY", height = 300, width = 250)
+      
     )
+    ,
+    DT::dataTableOutput('tbl_county')
   )
   #,
   #DT::dataTableOutput('tbl_county')
