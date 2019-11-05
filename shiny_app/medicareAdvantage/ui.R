@@ -207,6 +207,8 @@ navbarPage(
   tabPanel(
     'Analysis by State',
     leafletOutput("stateMap", width = "110vw", height = "100vh"),
+    
+    ######## PANEL: TAB 2, LHS ########
     absolutePanel(
       id = "controls",
       class = "panel panel-default",
@@ -230,6 +232,23 @@ navbarPage(
           onInitialize = I('function() { this.setValue(""); }')
         )
       ),
+      plotOutput("TOP_10_COUNTY", height = 300, width = 250)
+      
+    ),
+    ######## PANEL: TAB 2, RHS ########
+    absolutePanel(
+      id = "controls",
+      class = "panel panel-default",
+      fixed = TRUE,
+      draggable = TRUE,
+      top = 65,
+      left = "auto",
+      right = 30,
+      bottom = "auto",
+      width = 330,
+      height = 560,
+      
+      h2("Select County"),
       selectizeInput(
         "county_tab2",
         'Select County',
@@ -238,15 +257,10 @@ navbarPage(
           placeholder = "Choose an option",
           onInitialize = I('function() { this.setValue(""); }')
         )
+      )
       ),
-      plotOutput("TOP_10_COUNTY", height = 300, width = 250)
-      
-    )
-    ,
     DT::dataTableOutput('tbl_county')
   )
-  #,
-  #DT::dataTableOutput('tbl_county')
 )
 
 #ui <- fluidPage(header)
