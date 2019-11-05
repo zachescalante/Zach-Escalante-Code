@@ -1,7 +1,10 @@
 #install.packages("ggplot2")
+install.packages("janitor")
 
+library(rlang)
 library(dplyr)
 library(ggplot2)
+library(janitor)
 library(reshape2)
 
 
@@ -21,17 +24,20 @@ ggplot(df, aes(Var2, value, group=factor(Var1))) + geom_line(aes(color=factor(Va
 
 #### Implement on real data ####
 
-county.data <- read.csv('county_payer_stats_t12mo.csv', header=TRUE, sep = ",")
+county.data <- read_excel('./data/county_payer_stats_t12mo.xlsx')
 
+head(county.data)
 county.df <- county.data %>%
-  filter(State == "AL" & FIPS.State.County.Code == "1001") %>% # filter based on state and FIPS code
-  arrange(desc(Sep.19)) %>%                                    # sort based on last months' values
-  select (-c(X, State, FIPS.State.County.Code))                # Make sure to drop unnecessary columns
+  filter(State == "AL" & FIPS == "1001") %>%                  # filter based on state and FIPS code
+  arrange(desc(!! sym(colnames(county.data)[5]))) %>%  # sort based on last months' values
+  select (-c(State, State_FIPS, FIPS))                        # Make sure to drop unnecessary columns
 
 # Take the top 10 
 county.df <- head(county.df, 10)
+head(county.df)
 
 # Create ggplot2 graph
-county.df <- melt(county.df, "Parent.Organization")
-ggplot(county.df, aes(variable, value, group = Parent.Organization, color = Parent.Organization)) +
+county.df <- melt(county.df, "Parent_Organization")
+county.df$variable <- as.Date( as.numeric (as.character(county.df$variable) ),origin="1899-12-30")
+ggplot(county.df, aes(variable, value, group = Parent_Organization, color = Parent_Organization)) +
   geom_line()
