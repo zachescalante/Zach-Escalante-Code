@@ -101,7 +101,7 @@ navbarPage(
         includeCSS("style.css"),
         includeScript("gomap.js")),
       
-      leafletOutput("myMap", width = "100%", height = "100%"),
+      leafletOutput("us.map.tab1", width = "100%", height = "100%"),
       
       ######## ABSOLUTE PANELS ########
       
@@ -146,7 +146,7 @@ navbarPage(
             )
           ),
           #textOutput("TestText"),
-          div(DT::dataTableOutput('state_ts_tbl'), style = "font-size: 75%; width: 75%")
+          div(DT::dataTableOutput('state.totals.ts.tab1'), style = "font-size: 75%; width: 75%")
         ),
       
       ######## PANEL: TAB 1, RHS ########
@@ -191,7 +191,7 @@ navbarPage(
         ),
         
         selectizeInput(
-          'value',
+          'medicare.type',
           'Select Demographic',
           choices = vars,
           options = list(
@@ -200,7 +200,7 @@ navbarPage(
           )
         ),
         plotOutput("totalMarket", height = 230, width = 250),
-        div(DT::dataTableOutput('tbl2'), style = "font-size: 75%; width: 75%")
+        div(DT::dataTableOutput('raw.state.totals.tab1'), style = "font-size: 75%; width: 75%")
       )
     )
   ),
@@ -218,13 +218,13 @@ navbarPage(
       left = 55,
       right = "auto",
       bottom = "auto",
-      width = 330,
+      width = 430,
       height = 560,
       
       h2("Select State"),
       
       selectizeInput(
-        'state_tab2',
+        'state.tab2',
         'Select State',
         choices = states,
         options = list(
@@ -232,7 +232,8 @@ navbarPage(
           onInitialize = I('function() { this.setValue(""); }')
         )
       ),
-      plotOutput("TOP_10_COUNTY", height = 300, width = 250)
+      plotOutput("top.10.payers.tab2", height = 300, width = 250),
+      plotOutput ('state.top.payers.ts.graph')
       
     ),
     ######## PANEL: TAB 2, RHS ########
@@ -250,16 +251,17 @@ navbarPage(
       
       h2("Select County"),
       selectizeInput(
-        "county_tab2",
+        "county.tab2",
         'Select County',
         choices = c("county A", "county B"),
         options = list(
           placeholder = "Choose an option",
           onInitialize = I('function() { this.setValue(""); }')
         )
-      )
       ),
-    DT::dataTableOutput('tbl_county')
+      DT::dataTableOutput('state.top.payer.ts.table.tab2')
+      ),
+    DT::dataTableOutput('state.payer.ts.table.tab2')
   )
 )
 

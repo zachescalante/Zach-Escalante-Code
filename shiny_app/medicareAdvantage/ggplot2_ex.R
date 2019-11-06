@@ -1,6 +1,7 @@
 #install.packages("ggplot2")
 install.packages("janitor")
 
+library(readxl)
 library(rlang)
 library(dplyr)
 library(ggplot2)
