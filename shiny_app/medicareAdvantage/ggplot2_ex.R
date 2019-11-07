@@ -37,8 +37,18 @@ county.df <- county.data %>%
 county.df <- head(county.df, 10)
 head(county.df)
 
-# Create ggplot2 graph
+# Melt dataframes
 county.df <- melt(county.df, "Parent_Organization")
 county.df$variable <- as.Date( as.numeric (as.character(county.df$variable) ),origin="1899-12-30")
+head(county.df)
+
+pct <- function(x) {x/lag(x)}
+test <- county.df %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
+
+# Create ggplot2 graph
+ggplot(test, aes(variable, lvar, group = Parent_Organization, color = Parent_Organization)) +
+  geom_line()
+
+# Create ggplot2 graph
 ggplot(county.df, aes(variable, value, group = Parent_Organization, color = Parent_Organization)) +
   geom_line()
