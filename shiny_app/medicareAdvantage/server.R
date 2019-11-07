@@ -247,31 +247,6 @@ shinyServer(function(input, output, session) {
     )
   })
   
-  
- 
-  #### TAB 2: LHS, state.top.payers.ts.graph #####
-  output$state.top.payers.ts.graph <- renderPlot({
-    req(state.top.payer.ts.tab2())
-    
-    # Create ggplot2 graph
-    county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
-    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
-    
-    # Create the plot
-    ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
-     geom_line() + 
-      geom_point() + 
-      ggtitle("Time Series Analysis") +
-      theme_minimal() +
-      scale_y_continuous(labels=comma) +
-      guides(col = guide_legend(nrow = 3)) +
-      theme(legend.position="bottom",
-            legend.title=element_blank(),
-            axis.title.x=element_blank(),
-            axis.title.y=element_blank(),
-            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
-  })
-  
   #### TAB 2: LHS, top.10.payers.tab2 #####
   output$top.10.payers.tab2 <- renderPlot({
     
@@ -280,7 +255,7 @@ shinyServer(function(input, output, session) {
     
     df <- data.frame(top.payers=top_10_payers,
                      payer.labels=labels_payers)
-
+    
     p <- ggplot(data=df, aes(x=payer.labels, y=top.payers, fill=top.payers)) +
       geom_bar(stat="identity", width = 0.60) +
       ggtitle("Top Insureres by Market Share") +
@@ -295,21 +270,57 @@ shinyServer(function(input, output, session) {
             plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5)) +
       coord_flip()
     p
-    # # Render a barplot
-    # par(mar = c(15, 5, 1, 1))
-    # #req(as.numeric(top_10_payers))
-    # if(req(as.numeric(top_10_payers))){
-    # barplot(
-    #   as.numeric(top_10_payers),
-    #   main = "",
-    #   xlab = "",
-    #   col = wes_palette(11),
-    #   names.arg = labels_payers,
-    #   las = 2,
-    #   horiz = TRUE
-    #)}
     
+  })
+ 
+  #### TAB 2: LHS, state.top.payers.ts.graph #####
+  output$state.top.payers.ts.graph <- renderPlot({
+    req(state.top.payer.ts.tab2())
     
+    # Melt the data frames
+    county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
+    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
+    # Create the plot
+    ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+     geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Analysis") +
+      theme_minimal() +
+      scale_y_continuous(labels=comma) +
+      scale_colour_viridis_d() +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  #### TAB 2: LHS, state.ts.perc.chg.graph #####
+  output$state.ts.perc.chg.graph <- renderPlot({
+    req(state.top.payer.ts.tab2())
+    
+    # Create ggplot2 graph
+    county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
+    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
+    county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
+    
+    # Create the plot
+    ggplot(county.melt.pct, aes(variable, lvar, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+      geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Change (%)") +
+      theme_minimal() +
+      scale_colour_viridis_d() +
+      scale_y_continuous(labels=comma) +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
   })
   
 })

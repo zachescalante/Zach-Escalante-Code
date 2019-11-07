@@ -234,7 +234,8 @@ navbarPage(
         )
       ),
       plotOutput("top.10.payers.tab2", height = 250, width = 370),
-      plotOutput ('state.top.payers.ts.graph')
+      plotOutput ('state.top.payers.ts.graph'),
+      plotOutput ('state.ts.perc.chg.graph')
       
     ),
     ######## PANEL: TAB 2, RHS ########
