@@ -10,6 +10,7 @@
 library(shiny)
 library(shinydashboard)
 library(leaflet)
+library(reshape2)
 
 vars <-
   c(
@@ -232,7 +233,7 @@ navbarPage(
           onInitialize = I('function() { this.setValue(""); }')
         )
       ),
-      plotOutput("top.10.payers.tab2", height = 300, width = 250),
+      plotOutput("top.10.payers.tab2", height = 250, width = 370),
       plotOutput ('state.top.payers.ts.graph')
       
     ),

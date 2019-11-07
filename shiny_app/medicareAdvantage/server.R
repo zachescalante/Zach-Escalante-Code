@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(scales)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
@@ -248,41 +249,65 @@ shinyServer(function(input, output, session) {
   
   
  
-  #### TAB 2: LHS, top.10.payers.tab2 #####
+  #### TAB 2: LHS, state.top.payers.ts.graph #####
   output$state.top.payers.ts.graph <- renderPlot({
     req(state.top.payer.ts.tab2())
+    
     # Create ggplot2 graph
     county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
     # Create the plot
-    ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = Parent_Organization)) +
-     geom_line() + geom_point() + theme(legend.position="bottom", 
-                                        axis.title.x=element_blank(),
-                                        axis.title.y=element_blank())
+    ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+     geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Analysis") +
+      theme_minimal() +
+      scale_y_continuous(labels=comma) +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
   })
   
   #### TAB 2: LHS, top.10.payers.tab2 #####
   output$top.10.payers.tab2 <- renderPlot({
-    #req(input$state.tab2,cancelOutput = TRUE)
-    #req(input$state.tab2)
     
     top_10_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 10)[[3]]
     labels_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 10)[[1]]
-    #top_10_payers <- head(state.TS.Tab2()[, 5, drop = TRUE], n = 10)
-    #labels_payers <- head(state.TS.Tab2()[, 4, drop = TRUE], n = 10)
     
-    # Render a barplot
-    par(mar = c(15, 5, 1, 1))
-    #req(as.numeric(top_10_payers))
-    if(req(as.numeric(top_10_payers))){
-    barplot(
-      as.numeric(top_10_payers),
-      main = "",
-      xlab = "",
-      col = wes_palette(11),
-      names.arg = labels_payers,
-      las = 2
-    )}
+    df <- data.frame(top.payers=top_10_payers,
+                     payer.labels=labels_payers)
+
+    p <- ggplot(data=df, aes(x=payer.labels, y=top.payers, fill=top.payers)) +
+      geom_bar(stat="identity", width = 0.60) +
+      ggtitle("Top Insureres by Market Share") +
+      scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
+      scale_y_continuous(labels=comma) +            # add commas to value labels
+      theme_minimal() +                             # remove grey background
+      scale_fill_viridis() +                        # add viridis color palette
+      theme(axis.text.y = element_text(hjust=0),    # left justify labels
+            axis.title.x=element_blank(),           # remove x title
+            axis.title.y=element_blank(),           # remove y title
+            legend.position="none",                 # remove legend
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5)) +
+      coord_flip()
+    p
+    # # Render a barplot
+    # par(mar = c(15, 5, 1, 1))
+    # #req(as.numeric(top_10_payers))
+    # if(req(as.numeric(top_10_payers))){
+    # barplot(
+    #   as.numeric(top_10_payers),
+    #   main = "",
+    #   xlab = "",
+    #   col = wes_palette(11),
+    #   names.arg = labels_payers,
+    #   las = 2,
+    #   horiz = TRUE
+    #)}
     
     
   })
