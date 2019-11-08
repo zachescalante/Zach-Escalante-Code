@@ -275,7 +275,29 @@ navbarPage(
   ),
   tabPanel(
     'Enrollment Data',
-    DT::dataTableOutput('state.payer.ts.table.tab2'))#,
+    sidebarPanel(
+      selectizeInput(
+        "state.tab3",
+        "Select State",
+        choices = states,
+        options = list(
+          placeholder = "Choose an option",
+          onInitialize = I('function() { this.setValue(""); }')
+        )
+      ),
+      selectizeInput(
+        "county.tab3",
+        "Select County",
+        choices = c("County A", "County B"),
+        options = list(
+          placeholder = "Choose an option",
+          onInitialize = I('function() { this.setValue(""); }')
+        )
+      )
+    ),
+    mainPanel(
+    DT::dataTableOutput('state.county.ts.table.tab3'))
+    )#,
   #DT::dataTableOutput('state.payer.ts.table.tab2')
 )
 

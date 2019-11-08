@@ -74,6 +74,15 @@ shinyServer(function(input, output, session) {
     
   })
   
+  #### PANEL: TAB 3, Main Panel, State/County Payer Time Series ####
+  state.county.ts.tab3 <- reactive({
+    req(input$state.tab3)
+    df_county %>%
+      filter(State_FIPS == input$state.tab3 & FIPS == input$county.tab3) %>%
+      group_by(Parent_Organization) %>%
+      summarise_if(is.numeric, funs(sum))
+  })
+  
   
   #### PANEL: TAB 1, RHS, INPUT: "TYPE", UPDATE: "SELECT DEMOGRAPHIC" #####
   observeEvent(input$scale, {
@@ -127,6 +136,18 @@ shinyServer(function(input, output, session) {
                          server = TRUE)
   })
   
+  #### PANEL: TAB 3, LHS, INPUT: "state.tab3", UPDATE: "county.tab3" #####
+  observeEvent(input$state.tab3, {
+    df_county_update <- df_county %>%
+      filter(State_FIPS == input$state.tab3)
+    
+    df_county_update <- unique(df_county_update$FIPS)
+    
+    updateSelectizeInput(session, "county.tab3",
+                         choices = unique(df_county_update),
+                         server = TRUE)
+  })
+  
   ######## DATA TABLES ########
   
   ######## TAB 1, PANEL 1, RHS ######
@@ -174,6 +195,11 @@ shinyServer(function(input, output, session) {
   output$state.top.payer.ts.table.tab2 <- DT::renderDataTable({
     req(state.top.payer.ts.tab2())
     DT::datatable(state.top.payer.ts.tab2())
+  })
+  
+  output$state.county.ts.table.tab3 <- DT::renderDataTable({
+    req(state.county.ts.tab3())
+    DT::datatable(state.county.ts.tab3())
   })
   
   ######## LEAFLET MAPS ########
