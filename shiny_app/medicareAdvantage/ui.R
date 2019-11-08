@@ -246,9 +246,9 @@ navbarPage(
       draggable = TRUE,
       top = 65,
       left = "auto",
-      right = 30,
+      right = 10,
       bottom = "auto",
-      width = 330,
+      width = 430,
       height = 560,
       
       h2("Select County"),
@@ -261,7 +261,9 @@ navbarPage(
           onInitialize = I('function() { this.setValue(""); }')
         )
       ),
-      DT::dataTableOutput('state.top.payer.ts.table.tab2')
+      plotOutput("top.10.payers.county.tab2", height = 250, width = 370),
+      plotOutput("county.top.payers.ts.graph"),
+      plotOutput("county.ts.perc.chg.graph")
       ),
     DT::dataTableOutput('state.payer.ts.table.tab2')
   )

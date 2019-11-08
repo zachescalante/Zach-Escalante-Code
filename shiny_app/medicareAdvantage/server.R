@@ -31,7 +31,7 @@ shinyServer(function(input, output, session) {
       filter(County == 'TOTAL' & GEOID == input$select_state)
   })
   
-  ### TAB 2 ###
+  #### PANEL: TAB 2, LHS, State Payer Time Series ####
   state.TS.Tab2 <- reactive({
     req(input$state.tab2)
     df_county %>%
@@ -46,6 +46,27 @@ shinyServer(function(input, output, session) {
     # Use dplyr to sort by last month's numbers
     county.df <- state.TS.Tab2() %>%
       arrange(desc(!! sym(colnames(state.TS.Tab2()[3])))) %>%  # sort based on last months' values
+      select (-c(FIPS))
+    # Make sure to drop unnecessary columns
+    # Take the top-10 payers by market share
+    county.df <- head(county.df, 10)
+    
+  })
+  
+  #### PANEL: TAB 2, RHS, County Payer Time Series ####
+  county.ts.tab2 <- reactive({
+    req(input$state.tab2)
+    df_county %>%
+      filter(State_FIPS == input$state.tab2 & FIPS == input$county.tab2) %>%
+      group_by(Parent_Organization) %>%
+      summarise_if(is.numeric, funs(sum))
+  })
+  
+  county.top.payer.ts.tab2 <- reactive({
+    req(county.ts.tab2())
+    # Use dplyr to sort by last month's numbers
+    county.df <- county.ts.tab2() %>%
+      arrange(desc(!! sym(colnames(county.ts.tab2()[3])))) %>%  # sort based on last months' values
       select (-c(FIPS))
     # Make sure to drop unnecessary columns
     # Take the top-10 payers by market share
@@ -258,7 +279,33 @@ shinyServer(function(input, output, session) {
     
     p <- ggplot(data=df, aes(x=payer.labels, y=top.payers, fill=top.payers)) +
       geom_bar(stat="identity", width = 0.60) +
-      ggtitle("Top Insureres by Market Share") +
+      ggtitle("Top Insureres by State") +
+      scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
+      scale_y_continuous(labels=comma) +            # add commas to value labels
+      theme_minimal() +                             # remove grey background
+      scale_fill_viridis() +                        # add viridis color palette
+      theme(axis.text.y = element_text(hjust=0),    # left justify labels
+            axis.title.x=element_blank(),           # remove x title
+            axis.title.y=element_blank(),           # remove y title
+            legend.position="none",                 # remove legend
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5)) +
+      coord_flip()
+    p
+    
+  })
+  
+  #### TAB 2: RHS, top.10.payers.county.tab2 #####
+  output$top.10.payers.county.tab2 <- renderPlot({
+    
+    top_10_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 10)[[3]]
+    labels_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 10)[[1]]
+    
+    df <- data.frame(top.payers=top_10_payers,
+                     payer.labels=labels_payers)
+    
+    p <- ggplot(data=df, aes(x=payer.labels, y=top.payers, fill=top.payers)) +
+      geom_bar(stat="identity", width = 0.60) +
+      ggtitle("Top Insureres by County") +
       scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
       scale_y_continuous(labels=comma) +            # add commas to value labels
       theme_minimal() +                             # remove grey background
@@ -278,12 +325,36 @@ shinyServer(function(input, output, session) {
     req(state.top.payer.ts.tab2())
     
     # Melt the data frames
-    county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
+    state.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
+    state.data.melt$variable <- as.Date( as.numeric (as.character(state.data.melt$variable) ),origin="1899-12-30")
+    
+    # Create the plot
+    ggplot(state.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+     geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Analysis") +
+      theme_minimal() +
+      scale_y_continuous(labels=comma) +
+      scale_colour_viridis_d() +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  #### TAB 2: RHS, county.top.payers.ts.graph #####
+  output$county.top.payers.ts.graph <- renderPlot({
+    req(state.top.payer.ts.tab2())
+    
+    # Melt the data frames
+    county.data.melt <- melt(county.top.payer.ts.tab2(), id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
     
     # Create the plot
     ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
-     geom_line() + 
+      geom_line() + 
       geom_point() + 
       ggtitle("Time Series Analysis") +
       theme_minimal() +
@@ -303,6 +374,32 @@ shinyServer(function(input, output, session) {
     
     # Create ggplot2 graph
     county.data.melt <- melt(state.top.payer.ts.tab2(), id="Parent_Organization")
+    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
+    county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
+    
+    # Create the plot
+    ggplot(county.melt.pct, aes(variable, lvar, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+      geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Change (%)") +
+      theme_minimal() +
+      scale_colour_viridis_d() +
+      scale_y_continuous(labels=comma) +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  #### TAB 2: RHS, county.ts.perc.chg.graph #####
+  output$county.ts.perc.chg.graph <- renderPlot({
+    req(state.top.payer.ts.tab2())
+    
+    # Create ggplot2 graph
+    county.data.melt <- melt(county.top.payer.ts.tab2(), id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
     
     county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
