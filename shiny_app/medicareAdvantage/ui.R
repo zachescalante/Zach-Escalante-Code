@@ -296,7 +296,7 @@ navbarPage(
       )
     ),
     mainPanel(
-    DT::dataTableOutput('state.county.ts.table.tab3'))
+    div(DT::dataTableOutput('state.county.ts.table.tab3')), style = "font-size: 85%; width: 85%")
     )#,
   #DT::dataTableOutput('state.payer.ts.table.tab2')
 )

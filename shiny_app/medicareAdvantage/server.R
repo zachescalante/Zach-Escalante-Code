@@ -199,7 +199,22 @@ shinyServer(function(input, output, session) {
   
   output$state.county.ts.table.tab3 <- DT::renderDataTable({
     req(state.county.ts.tab3())
-    DT::datatable(state.county.ts.tab3())
+    data.frame <- state.county.ts.tab3()
+    dates.len <- length(colnames(data.frame))
+    raw.dates <- colnames(data.frame)[3:dates.len]
+    formatted.dates <- as.character(as.Date( as.numeric (raw_dates),origin="1899-12-30"))
+    colnames(data.frame)[3:dates.len] <- formatted.dates
+    
+    DT::datatable(data.frame,
+                  options = list(dom = 'rltip')) %>%
+                formatCurrency(
+                    3:dates.len,
+                    currency = "",
+                    interval = 3,
+                    mark = ","
+                  ) %>%
+      formatRound(3:dates.len, 0)
+
   })
   
   ######## LEAFLET MAPS ########
