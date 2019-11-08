@@ -152,7 +152,6 @@ shinyServer(function(input, output, session) {
   output$state.totals.ts.tab1 <- DT::renderDataTable({
     req(input$market_state)
     
-    #df_ts <- stateTSTab1()[, c("Year", "Month", input$market_state)]
     DT::datatable(stateTSTab1()[, c("Year", "Month", input$market_state)],
                   options = list(pageLength = 12, dom = 'rtip')) %>%
       formatStyle(0,
@@ -170,10 +169,6 @@ shinyServer(function(input, output, session) {
   output$state.payer.ts.table.tab2 <- DT::renderDataTable({
     req(input$state.tab2)
     DT::datatable(state.TS.Tab2())
-  })
-  
-  output$TestText <- renderText({
-    input$state.tab2
   })
   
   output$state.top.payer.ts.table.tab2 <- DT::renderDataTable({

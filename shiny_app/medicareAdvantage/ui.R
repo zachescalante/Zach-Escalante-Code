@@ -207,7 +207,13 @@ navbarPage(
   ),
   tabPanel(
     'Analysis by State',
-    leafletOutput("stateMap", width = "110vw", height = "100vh"),
+    div(
+      class = "outer",
+      tags$head(
+        includeCSS("style.css"),
+        includeScript("gomap.js")
+      ),
+    leafletOutput("stateMap", width = "100%", height = "100%"),
     
     ######## PANEL: TAB 2, LHS ########
     absolutePanel(
@@ -264,9 +270,13 @@ navbarPage(
       plotOutput("top.10.payers.county.tab2", height = 250, width = 370),
       plotOutput("county.top.payers.ts.graph"),
       plotOutput("county.ts.perc.chg.graph")
-      ),
-    DT::dataTableOutput('state.payer.ts.table.tab2')
-  )
+      )
+    )
+  ),
+  tabPanel(
+    'Enrollment Data',
+    DT::dataTableOutput('state.payer.ts.table.tab2'))#,
+  #DT::dataTableOutput('state.payer.ts.table.tab2')
 )
 
 #ui <- fluidPage(header)
