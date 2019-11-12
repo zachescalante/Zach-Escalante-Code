@@ -73,5 +73,8 @@ df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 # df_county <- read_excel("./data/county_payer_statistics.xlsx")
 df_county <- read_excel("./data/county_payer_stats_t12mo.xlsx")
 
+df.population <- read_csv("./data/PEP_2018_PEPAGESEX_with_ann.csv")
+df.population$est72018sex0_age65to69 <- as.numeric(as.factor(df.population$est72018sex0_age65to69))
+
 
 

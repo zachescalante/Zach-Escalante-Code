@@ -18,6 +18,10 @@ shinyServer(function(input, output, session) {
     colorQuantile("viridis", stateTotalsTab1()[, input$medicare.type, drop = TRUE], n = 9)
   })
   
+  pal.tab2 <- reactive({
+    colorQuantile(palette = "magma", domain = df.population$est72018sex0_age65to69)
+  })
+  
   ### TAB 1 ###
   
   stateTotalsTab1 <- reactive({
@@ -250,6 +254,13 @@ shinyServer(function(input, output, session) {
   
   output$stateMap <- renderLeaflet({
     req(input$state.tab2)
+
+    county.df <- merge(us.map.county,
+                     df.population[, c("GEO.id", "est72018sex0_age65to69"), drop = TRUE],
+                     #df.population,
+                     by.x = "AFFGEOID",
+                     by.y = "GEO.id")
+    
     leaflet() %>%
       fitBounds(
         lng1 = min(coordinates(us.map.county[which(us.map.county$STATEFP == input$state.tab2), ])[, 1]),
@@ -261,7 +272,11 @@ shinyServer(function(input, output, session) {
                                                          input$state.tab2), ])[, 2])
       ) %>%
     addProviderTiles("Esri.WorldGrayCanvas") %>%
-      addPolygons(data = us.map.county[which(us.map.county$STATEFP == input$state.tab2), ])
+      addPolygons(data = county.df[which(test.df$STATEFP == input$state.tab2 & county.df$GEOID != input$county.tab2), ],
+                  fillColor = ~pal.tab2()(county.df$est72018sex0_age65to69),
+                  stroke = FALSE,
+                  smoothFactor = 0.2,
+                  fillOpacity = 0.3)
   })
   
   ######## GRAPHS AND PLOTS ########
