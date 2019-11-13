@@ -19,7 +19,7 @@ shinyServer(function(input, output, session) {
   })
   
   pal.tab2 <- reactive({
-    colorQuantile(palette = "magma", domain = df.population$est72018sex0_age65to69)
+    colorQuantile(palette = "Blues", domain = df.population$est72018sex0_age65to69)
   })
   
   ### TAB 1 ###
@@ -206,7 +206,7 @@ shinyServer(function(input, output, session) {
     data.frame <- state.county.ts.tab3()
     dates.len <- length(colnames(data.frame))
     raw.dates <- colnames(data.frame)[3:dates.len]
-    formatted.dates <- as.character(as.Date( as.numeric (raw_dates),origin="1899-12-30"))
+    formatted.dates <- as.character(as.Date( as.numeric (raw.dates),origin="1899-12-30"))
     colnames(data.frame)[3:dates.len] <- formatted.dates
     
     DT::datatable(data.frame,
