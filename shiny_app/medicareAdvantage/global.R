@@ -47,13 +47,6 @@ simplified_shp_v1 <- gSimplify(us.map.state, tol = 0.0001, topologyPreserve = FA
 simplified_state <- SpatialPolygonsDataFrame(simplified_shp_v1, data = us.map.state@data)
 
 format(object.size(us.map.state), units = "Mb")
-### Create dummy data
-set.seed(111)
-mydf <- data.frame(place = unique(us.map.county$GEOID),
-                   value_1 = sample.int(n = 1000000, size = length(unique(us.map.county$GEOID)), replace = TRUE),
-                   value_2 = sample.int(n = 1000000, size = length(unique(us.map.county$GEOID)), replace = TRUE),
-                   value_3 = sample.int(n = 1000000, size = length(unique(us.map.county$GEOID)), replace = TRUE),
-                   value_4 = sample.int(n = 1000000, size = length(unique(us.map.county$GEOID)), replace = TRUE))
 
 # Import the monthly enrollment data for all medicare products 
 # found here https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/CMSProgramStatistics/Downloads/Enrollment_Dashboard_Data_File.zip
@@ -65,7 +58,8 @@ colnames(df) <- c("Year", "Month", "State", "County", "OriginalMedicare", "MedAd
 df <- transform(df, OrigMedicare_perc = as.integer(100*OriginalMedicare / MedicareTotal))
 df <- transform(df, MedAdvOther_perc = as.integer(100*MedAdvOther / MedicareTotal))
 df <- transform(df, MedicareTotal_perc = 100*MedicareTotal / MedicareTotal)
-
+df <- transform(df, Date = paste(df$Month, df$Year, sep="-"))
+df <- transform(df, Date = as.character(df$Date))
 
 df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 

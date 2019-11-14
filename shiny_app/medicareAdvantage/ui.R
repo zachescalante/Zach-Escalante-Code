@@ -35,6 +35,20 @@ month <-
     "December"
   )
 
+month_v2 <- c("July-2019",
+              "May-2019",
+              "February-2019",
+              "September-2018",
+              "August-2018",
+              "December-2018",
+              "November-2018",
+              "March-2019",
+              "October-2018",
+              "June-2019",
+              "January-2019",
+              "April-2019" 
+)
+
 states <-
   c(
     "Alabama" = "01",
@@ -106,7 +120,7 @@ navbarPage(
       
       ######## ABSOLUTE PANELS ########
       
-      ######## PANEL: TAB 1, LHS ########
+      ######## PANEL: TAB 1, RHS ########
 
         absolutePanel(
           id = "controls",
@@ -114,8 +128,8 @@ navbarPage(
           fixed = TRUE,
           draggable = TRUE,
           top = 65,
-          left = 55,
-          right = "auto",
+          left = "auto",
+          right = 10,
           bottom = "auto",
           width = 330,
           height = 560,
@@ -150,15 +164,15 @@ navbarPage(
           div(DT::dataTableOutput('state.totals.ts.tab1'), style = "font-size: 75%; width: 75%")
         ),
       
-      ######## PANEL: TAB 1, RHS ########
+      ######## PANEL: TAB 1, LHS ########
       absolutePanel(
         id = "controls",
         class = "panel panel-default",
         fixed = TRUE,
         draggable = TRUE,
         top = 60,
-        left = "auto",
-        right = 10,
+        left = 55,
+        right = "auto",
         bottom = "auto",
         width = 330,
         height = 560,#"auto",
@@ -171,36 +185,34 @@ navbarPage(
           inline = TRUE
         ),
         
-        selectizeInput(
-          'year_us',
-          'Select year',
-          choices = c("2018", "2019"),
-          options = list(
-            placeholder = 'Choose an option',
-            onInitialize = I('function() { this.setValue("2019"); }')
-          )
-        ),
-        
-        selectizeInput(
+        # selectizeInput(
+        #   'year_us',
+        #   'Select year',
+        #   choices = c("2018", "2019"),
+        #   options = list(
+        #     placeholder = 'Choose an option',
+        #     onInitialize = I('function() { this.setValue("2019"); }')
+        #   )
+        # ),
+        # IMPROVEMENT: Make this an automatically generated list from the df$Date column
+        # IMPROVEMENT: Order the dates in descending order
+        # IMPROVEMENT: cutoff months to 3 characters (Jan, Feb, Mar, etc)
+        selectInput(
           'month_us',
           'Select Month',
-          choices = month,
-          options = list(
-            placeholder = 'Choose an option',
-            onInitialize = I('function() { this.setValue("January"); }')
-          )
-        ),
+          choices = month_v2
+          ),
         
         selectizeInput(
           'medicare.type',
-          'Select Demographic',
+          'Select Medicare Market',
           choices = vars,
           options = list(
             placeholder = 'Choose an option',
             onInitialize = I('function() { this.setValue(""); }')
           )
         ),
-        plotOutput("totalMarket", height = 230, width = 250),
+        plotOutput("state.market", height = 230, width = 250),
         div(DT::dataTableOutput('raw.state.totals.tab1'), style = "font-size: 75%; width: 75%")
       )
     )

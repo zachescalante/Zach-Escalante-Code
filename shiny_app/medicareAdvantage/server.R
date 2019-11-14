@@ -26,8 +26,8 @@ shinyServer(function(input, output, session) {
   
   stateTotalsTab1 <- reactive({
     df %>%
-      filter(County == 'TOTAL' &
-               Year == input$year_us & Month == input$month_us)
+      filter(County == 'TOTAL' & Date == input$month_us)
+               #Year == input$year_us & Month == input$month_us)
   })
   
   stateTSTab1 <- reactive({
@@ -281,25 +281,27 @@ shinyServer(function(input, output, session) {
   
   ######## GRAPHS AND PLOTS ########
   
-  # Test barplot 1
-  output$totalMarket <- renderPlot({
+  #### TAB 1: LHS, state.market #####
+  output$state.market <- renderPlot({
     req(input$medicare.type)
-    state_total <- stateTotalsTab1() %>%
-      arrange_at(desc(stateTotalsTab1()[, input$medicare.type, drop = TRUE]))
     
-    top_10 <- tail(stateTotalsTab1()[, input$medicare.type, drop = TRUE], n = 10)
-    labels <- tail(stateTotalsTab1()[, 1, drop = TRUE], n = 10)
-    
-    # Render a barplot
-    par(mar = c(7, 5, 1, 1))
-    barplot(
-      as.numeric(top_10),
-      main = "",
-      xlab = "",
-      col = wes_palette(11),
-      names.arg = labels,
-      las = 2
-    )
+    df <- stateTotalsTab1()[, c("State", input$medicare.type), drop = TRUE]
+    df <- head(df[order(-df[,2]), ], 10)
+
+    q <- ggplot(df, aes_string(x=names(df)[1], y=names(df)[2], fill = names(df)[2])) +
+      ggtitle("Top States by Market") +
+      geom_bar(stat="identity", width = 0.60) +
+      scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
+      theme_minimal() +                             # remove grey background
+      scale_y_continuous(labels=comma) +            # add commas to value labels
+      scale_fill_viridis() +         # add viridis color palette
+      theme(axis.text.y = element_text(hjust=0),    # left justify labels
+            axis.title.x=element_blank(),           # remove x title
+            axis.title.y=element_blank(),           # remove y title
+            legend.position="none",                 # remove legend
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5)) +
+      coord_flip()
+    q
   })
   
   # Test barplot 2
