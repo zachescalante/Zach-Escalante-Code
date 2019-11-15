@@ -212,8 +212,8 @@ navbarPage(
             onInitialize = I('function() { this.setValue(""); }')
           )
         ),
-        plotOutput("state.market", height = 230, width = 250),
-        div(DT::dataTableOutput('raw.state.totals.tab1'), style = "font-size: 75%; width: 75%")
+        plotOutput("state.market", height = 230, width = 270),
+        div(DT::dataTableOutput('raw.state.totals.tab1'), style = "font-size: 90%; width: 90%")
       )
     )
   ),

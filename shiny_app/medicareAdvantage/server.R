@@ -299,7 +299,7 @@ shinyServer(function(input, output, session) {
             axis.title.x=element_blank(),           # remove x title
             axis.title.y=element_blank(),           # remove y title
             legend.position="none",                 # remove legend
-            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5)) +
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0)) +
       coord_flip()
     q
   })
