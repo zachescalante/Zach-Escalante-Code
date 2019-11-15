@@ -294,7 +294,7 @@ shinyServer(function(input, output, session) {
       scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
       theme_minimal() +                             # remove grey background
       scale_y_continuous(labels=comma) +            # add commas to value labels
-      scale_fill_viridis() +         # add viridis color palette
+      scale_fill_continuous(low = "#ffeda0", high = "#f03b20") +         # add viridis color palette
       theme(axis.text.y = element_text(hjust=0),    # left justify labels
             axis.title.x=element_blank(),           # remove x title
             axis.title.y=element_blank(),           # remove y title
