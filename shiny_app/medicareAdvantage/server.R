@@ -272,7 +272,7 @@ shinyServer(function(input, output, session) {
                                                          input$state.tab2), ])[, 2])
       ) %>%
     addProviderTiles("Esri.WorldGrayCanvas") %>%
-      addPolygons(data = county.df[which(test.df$STATEFP == input$state.tab2 & county.df$GEOID != input$county.tab2), ],
+      addPolygons(data = county.df[which(county.df$STATEFP == input$state.tab2 & county.df$GEOID != input$county.tab2), ],
                   fillColor = ~pal.tab2()(county.df$est72018sex0_age65to69),
                   stroke = FALSE,
                   smoothFactor = 0.2,
