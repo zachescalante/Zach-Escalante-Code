@@ -316,9 +316,11 @@ navbarPage(
       )
     ),
     mainPanel(
-    div(DT::dataTableOutput('state.county.ts.table.tab3')), style = "font-size: 85%; width: 85%")
-    )#,
-  #DT::dataTableOutput('state.payer.ts.table.tab2')
+      fluidRow(
+        column(6,plotOutput(outputId="county.top.payers.ts.tab3", width="350px",height="300px")), 
+        column(6,plotOutput(outputId="county.ts.perc.chg.tab3", width="350px",height="300px")))
+      ),
+    div(DT::dataTableOutput('state.county.ts.table.tab3')), style = "font-size: 75%; width: 75%")
 )
 
 #ui <- fluidPage(header)

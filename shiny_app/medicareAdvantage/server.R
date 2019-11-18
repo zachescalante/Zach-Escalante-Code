@@ -19,7 +19,7 @@ shinyServer(function(input, output, session) {
   })
   
   pal.tab2 <- reactive({
-    colorQuantile(palette = "Blues", domain = df.population$est72018sex0_age65to69)
+    colorQuantile(palette = "Reds", domain = df.population$est72018sex0_age65to69)
   })
   
   ### TAB 1 ###
@@ -27,7 +27,6 @@ shinyServer(function(input, output, session) {
   stateTotalsTab1 <- reactive({
     df %>%
       filter(County == 'TOTAL' & Date == input$month_us)
-               #Year == input$year_us & Month == input$month_us)
   })
   
   stateTSTab1 <- reactive({
@@ -284,6 +283,11 @@ shinyServer(function(input, output, session) {
                   fillColor = ~pal.tab2()(county.df$est72018sex0_age65to69),
                   stroke = FALSE,
                   smoothFactor = 0.2,
+                  fillOpacity = 0.3) %>%
+      addPolygons(data = county.df[which(county.df$STATEFP == input$state.tab2 & county.df$GEOID == input$county.tab2), ],
+                  fillColor = "Blue",
+                  stroke = FALSE,
+                  smoothFactor = 0.2,
                   fillOpacity = 0.3)
   })
   
@@ -484,6 +488,56 @@ shinyServer(function(input, output, session) {
     
     # Create ggplot2 graph
     county.data.melt <- melt(county.top.payer.ts.tab2(), id="Parent_Organization")
+    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
+    county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
+    
+    # Create the plot
+    ggplot(county.melt.pct, aes(variable, lvar, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+      geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Change (%)") +
+      theme_minimal() +
+      scale_colour_viridis_d() +
+      scale_y_continuous(labels=comma) +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  #### TAB 2: RHS, county.top.payers.ts.graph #####
+  output$county.top.payers.ts.tab3 <- renderPlot({
+    req(state.county.ts.tab3())
+    
+    # Melt the data frames
+    county.data.melt <- melt(state.county.ts.tab3(), id="Parent_Organization")
+    county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
+    
+    # Create the plot
+    ggplot(county.data.melt, aes(variable, value, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
+      geom_line() + 
+      geom_point() + 
+      ggtitle("Time Series Analysis") +
+      theme_minimal() +
+      scale_y_continuous(labels=comma) +
+      scale_colour_viridis_d() +
+      guides(col = guide_legend(nrow = 3)) +
+      theme(legend.position="bottom",
+            legend.title=element_blank(),
+            axis.title.x=element_blank(),
+            axis.title.y=element_blank(),
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  #### TAB 3: county.ts.perc.chg.tab3 #####
+  output$county.ts.perc.chg.tab3 <- renderPlot({
+    req(state.county.ts.tab3())
+    
+    # Create ggplot2 graph
+    county.data.melt <- melt(state.county.ts.tab3(), id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
     
     county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
