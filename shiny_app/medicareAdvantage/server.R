@@ -32,7 +32,7 @@ shinyServer(function(input, output, session) {
   
   stateTSTab1 <- reactive({
     df %>%
-      filter(County != c('Unknown', 'TOTAL') & GEOID == input$select_state & Date == input$date.tab1.rhs)
+      filter(County != 'TOTAL' & County != 'Unknown' & GEOID == input$select_state & Date == input$date.tab1.rhs)
   })
   
   #### PANEL: TAB 2, LHS, State Payer Time Series ####
@@ -126,6 +126,9 @@ shinyServer(function(input, output, session) {
     updateSelectizeInput(session, "market_state",
                          choices = y,
                          server = TRUE)
+    updateSelectizeInput(session, "market.county",
+                         choices = y,
+                         server = TRUE)
   })
   
   #### PANEL: TAB 2, LHS, INPUT: "state.tab2", UPDATE: "county.tab2" #####
@@ -173,14 +176,14 @@ shinyServer(function(input, output, session) {
       )
   })
   
-  ######## TAB 1: RHS, state.totals.ts.tab1 ######
+  ######## TAB 1: RHS, county.totals.tab1 ######
   output$county.totals.tab1 <- DT::renderDataTable({
-    req(input$market_state)
+    req(input$market.county)
     
     # Find the number of columns for formatting
     col.len <- length(colnames(stateTSTab1()))
     
-    DT::datatable(stateTSTab1()[, c("Date", "County", input$market_state)],
+    DT::datatable(stateTSTab1()[, c("Date", "County", input$market.county)],
                   options = list(pageLength = 10, dom = 'rtip')) %>%
       formatStyle(0,
                   target = 'row',
@@ -236,7 +239,8 @@ shinyServer(function(input, output, session) {
             by.y = "State")
     
     leaflet() %>%
-      setView(mean(coordinates(us.map.state)[, 1]), mean(coordinates(us.map.state)[, 2]), 4) %>%
+      # setView(-10: move graph to right so it fits between the panels
+      setView(mean(coordinates(us.map.state)[, 1])-10, mean(coordinates(us.map.state)[, 2]), 4) %>%
       # This is where we adjust the basemap graphics
       addProviderTiles("Hydda.Base") %>%
       addPolygons(
@@ -310,9 +314,9 @@ shinyServer(function(input, output, session) {
   
   #### TAB 1: RHS, county.market #####
   output$county.market <- renderPlot({
-    req(input$medicare.type)
+    req(input$market.county)
     
-    df <- stateTSTab1()[, c("County", input$medicare.type), drop = TRUE]
+    df <- stateTSTab1()[, c("County", input$market.county), drop = TRUE]
     df <- head(df[order(-df[,2]), ], 10)
     
     q <- ggplot(df, aes_string(x=names(df)[1], y=names(df)[2], fill = names(df)[2])) +

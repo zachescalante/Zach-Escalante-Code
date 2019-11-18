@@ -149,7 +149,7 @@ navbarPage(
           ),
           
           selectizeInput(
-            'market_state',
+            'market.county',
             'Select Demographic',
             choices = vars,
             options = list(
