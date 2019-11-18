@@ -142,6 +142,12 @@ navbarPage(
             inline = TRUE
           ),
           
+          selectInput(
+            'date.tab1.rhs',
+            'Select a Month',
+            choices = month_v2
+          ),
+          
           selectizeInput(
             'market_state',
             'Select Demographic',
@@ -161,7 +167,8 @@ navbarPage(
             )
           ),
           #textOutput("TestText"),
-          div(DT::dataTableOutput('state.totals.ts.tab1'), style = "font-size: 75%; width: 75%")
+          plotOutput("county.market", height = 230, width = 270),
+          div(DT::dataTableOutput('county.totals.tab1'), style = "font-size: 75%; width: 75%")
         ),
       
       ######## PANEL: TAB 1, LHS ########
@@ -285,6 +292,7 @@ navbarPage(
       )
     )
   ),
+  ######## PANEL: TAB 3########
   tabPanel(
     'Enrollment Data',
     sidebarPanel(

@@ -32,7 +32,7 @@ shinyServer(function(input, output, session) {
   
   stateTSTab1 <- reactive({
     df %>%
-      filter(County == 'TOTAL' & GEOID == input$select_state)
+      filter(County != c('Unknown', 'TOTAL') & GEOID == input$select_state & Date == input$date.tab1.rhs)
   })
   
   #### PANEL: TAB 2, LHS, State Payer Time Series ####
@@ -164,7 +164,7 @@ shinyServer(function(input, output, session) {
       formatStyle(0,
                   target = 'row',
                   color = 'black',
-                  lineHeight = '60%') %>%
+                  lineHeight = '90%') %>%
       formatCurrency(
         input$medicare.type,
         currency = "",
@@ -173,22 +173,26 @@ shinyServer(function(input, output, session) {
       )
   })
   
-  ######## TAB 1, PANEL 2, LHS ######
-  output$state.totals.ts.tab1 <- DT::renderDataTable({
+  ######## TAB 1: RHS, state.totals.ts.tab1 ######
+  output$county.totals.tab1 <- DT::renderDataTable({
     req(input$market_state)
     
-    DT::datatable(stateTSTab1()[, c("Year", "Month", input$market_state)],
-                  options = list(pageLength = 12, dom = 'rtip')) %>%
+    # Find the number of columns for formatting
+    col.len <- length(colnames(stateTSTab1()))
+    
+    DT::datatable(stateTSTab1()[, c("Date", "County", input$market_state)],
+                  options = list(pageLength = 10, dom = 'rtip')) %>%
       formatStyle(0,
                   target = 'row',
                   color = 'black',
-                  lineHeight = '60%') %>%
+                  lineHeight = '90%') %>%
       formatCurrency(
         input$market_state,
         currency = "",
         interval = 3,
         mark = ","
-      )
+      ) %>%
+      formatRound(2:col.len, 0)
   })
   
   output$state.payer.ts.table.tab2 <- DT::renderDataTable({
@@ -290,6 +294,29 @@ shinyServer(function(input, output, session) {
 
     q <- ggplot(df, aes_string(x=names(df)[1], y=names(df)[2], fill = names(df)[2])) +
       ggtitle("Top States by Market") +
+      geom_bar(stat="identity", width = 0.60) +
+      scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
+      theme_minimal() +                             # remove grey background
+      scale_y_continuous(labels=comma) +            # add commas to value labels
+      scale_fill_continuous(low = "#ffeda0", high = "#f03b20") +         # add viridis color palette
+      theme(axis.text.y = element_text(hjust=0),    # left justify labels
+            axis.title.x=element_blank(),           # remove x title
+            axis.title.y=element_blank(),           # remove y title
+            legend.position="none",                 # remove legend
+            plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0)) +
+      coord_flip()
+    q
+  })
+  
+  #### TAB 1: RHS, county.market #####
+  output$county.market <- renderPlot({
+    req(input$medicare.type)
+    
+    df <- stateTSTab1()[, c("County", input$medicare.type), drop = TRUE]
+    df <- head(df[order(-df[,2]), ], 10)
+    
+    q <- ggplot(df, aes_string(x=names(df)[1], y=names(df)[2], fill = names(df)[2])) +
+      ggtitle("Top Counties by Market") +
       geom_bar(stat="identity", width = 0.60) +
       scale_x_discrete(label = function(x) stringr::str_trunc(x, 12)) +  # truncate data names to 12 characters
       theme_minimal() +                             # remove grey background
