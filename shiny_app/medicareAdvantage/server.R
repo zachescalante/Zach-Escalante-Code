@@ -241,7 +241,7 @@ shinyServer(function(input, output, session) {
       # setView(-10: move graph to right so it fits between the panels
       setView(mean(coordinates(us.map.state)[, 1])-10, mean(coordinates(us.map.state)[, 2]), 4) %>%
       # This is where we adjust the basemap graphics
-      addProviderTiles("Hydda.Base") %>%
+      addProviderTiles("Stamen.TonerLite") %>%
       addPolygons(
         data = medicare_market,
         # mydf$medicare.type will be the variable passed from the user dropdown menu in Shiny
