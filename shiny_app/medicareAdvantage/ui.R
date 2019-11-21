@@ -247,11 +247,9 @@ navbarPage(
       width = 430,
       height = 560,
       
-      h2("Select State"),
-      
       selectizeInput(
         'state.tab2',
-        'Select State',
+        h4("Select State"),
         choices = states,
         options = list(
           placeholder = "Choose an option",
@@ -276,10 +274,10 @@ navbarPage(
       width = 430,
       height = 560,
       
-      h2("Select County"),
+      
       selectizeInput(
         "county.tab2",
-        'Select County',
+        h4("Select County"),
         choices = c("county A", "county B"),
         options = list(
           placeholder = "Choose an option",
@@ -293,32 +291,53 @@ navbarPage(
     )
   ),
   ######## PANEL: TAB 3########
-  tabPanel(
-    'Enrollment Data',
-    sidebarPanel(
+  tabPanel('Enrollment Data',
+           div(
+             class = "outer",
+             tags$head(
+               includeCSS("style.css"),
+               includeScript("gomap.js")
+             )
+           ),
+    absolutePanel(
+      id = "controls",
+      class = "panel panel-default",
+      fixed = TRUE,
+      draggable = FALSE,
+      top = 65,
+      left = "auto",
+      right = 10,
+      bottom = "auto",
+      width = 250,
+      height = 550,
+      
       selectizeInput(
         "state.tab3",
-        "Select State",
+        h4("Select State"),
         choices = states,
         options = list(
           placeholder = "Choose an option",
           onInitialize = I('function() { this.setValue(""); }')
         )
       ),
+      
       selectizeInput(
         "county.tab3",
-        "Select County",
+        h4("Select County"),
         choices = c("County A", "County B"),
         options = list(
           placeholder = "Choose an option",
           onInitialize = I('function() { this.setValue(""); }')
         )
-      )
+      ),
+      #h4("Health Insurers"),
+      checkboxGroupInput("insurance.payers", h4("Health Insurers"), choices = c("Choice A", "Choice B", "Choice C"))
     ),
     mainPanel(
       fluidRow(
-        column(6,plotOutput(outputId="county.top.payers.ts.tab3", width="350px",height="300px")), 
-        column(6,plotOutput(outputId="county.ts.perc.chg.tab3", width="350px",height="300px")))
+        column(9,plotOutput(outputId="county.top.payers.ts.tab3", width="500px",height="400px")), 
+        column(3,plotOutput(outputId="county.ts.perc.chg.tab3", width="500px",height="400px"))
+        )
       ),
     div(DT::dataTableOutput('state.county.ts.table.tab3')), style = "font-size: 75%; width: 75%")
 )

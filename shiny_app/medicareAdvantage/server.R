@@ -154,6 +154,17 @@ shinyServer(function(input, output, session) {
                          server = TRUE)
   })
   
+  ### PANEL: TAB 3, LHS INPUT: "county.tab3", UPDATE "healthcare.payers.tab3" ####
+  observeEvent(input$county.tab3, {
+    df.unique.payers <- df_county %>%
+      filter(State_FIPS == input$state.tab3 & FIPS == input$county.tab3)
+    
+    x <- df.unique.payers$Parent_Organization
+    
+    updateCheckboxGroupInput(session, "insurance.payers",
+                             choices = unique(x))
+  })
+  
   ######## DATA TABLES ########
   
   ######## TAB 1, PANEL 1, RHS ######
