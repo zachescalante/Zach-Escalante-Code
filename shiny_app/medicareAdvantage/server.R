@@ -522,9 +522,13 @@ shinyServer(function(input, output, session) {
   #### TAB 2: RHS, county.top.payers.ts.graph #####
   output$county.top.payers.ts.tab3 <- renderPlot({
     req(state.county.ts.tab3())
+    req(input$insurance.payers)
+    
+    county.data.filter <- state.county.ts.tab3() %>%
+      filter(Parent_Organization %in% input$insurance.payers)
     
     # Melt the data frames
-    county.data.melt <- melt(state.county.ts.tab3(), id="Parent_Organization")
+    county.data.melt <- melt(county.data.filter, id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
     
     # Create the plot
@@ -546,12 +550,18 @@ shinyServer(function(input, output, session) {
   #### TAB 3: county.ts.perc.chg.tab3 #####
   output$county.ts.perc.chg.tab3 <- renderPlot({
     req(state.county.ts.tab3())
+    req(input$insurance.payers)
+    
+    county.data.filter <- state.county.ts.tab3() %>%
+      filter(Parent_Organization %in% input$insurance.payers)
     
     # Create ggplot2 graph
-    county.data.melt <- melt(state.county.ts.tab3(), id="Parent_Organization")
+    county.data.melt <- melt(county.data.filter, id="Parent_Organization")
     county.data.melt$variable <- as.Date( as.numeric (as.character(county.data.melt$variable) ),origin="1899-12-30")
     
-    county.melt.pct <- county.data.melt %>% group_by(Parent_Organization) %>% mutate(lvar = 100*(lag(value) - value)/lag(value))
+    county.melt.pct <- county.data.melt %>%
+      group_by(Parent_Organization) %>% 
+      mutate(lvar = 100*(lag(value) - value)/lag(value))
     
     # Create the plot
     ggplot(county.melt.pct, aes(variable, lvar, group = Parent_Organization, color = str_trunc(Parent_Organization, 12, "right"))) +
