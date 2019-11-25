@@ -519,7 +519,7 @@ shinyServer(function(input, output, session) {
             plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
   })
   
-  #### TAB 2: RHS, county.top.payers.ts.graph #####
+  #### TAB 3: RHS, county.top.payers.ts.graph #####
   output$county.top.payers.ts.tab3 <- renderPlot({
     req(state.county.ts.tab3())
     req(input$insurance.payers)
@@ -553,7 +553,8 @@ shinyServer(function(input, output, session) {
     req(input$insurance.payers)
     
     county.data.filter <- state.county.ts.tab3() %>%
-      filter(Parent_Organization %in% input$insurance.payers)
+      filter(Parent_Organization %in% input$insurance.payers) %>%
+      select(-c("FIPS"))
     
     # Create ggplot2 graph
     county.data.melt <- melt(county.data.filter, id="Parent_Organization")
