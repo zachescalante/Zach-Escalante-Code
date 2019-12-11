@@ -309,7 +309,7 @@ navbarPage(
       right = 10,
       bottom = "auto",
       width = 250,
-      height = 550,
+      height = 400,
       
       selectizeInput(
         "state.tab3",
