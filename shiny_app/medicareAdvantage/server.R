@@ -41,7 +41,6 @@ shinyServer(function(input, output, session) {
       filter(State_FIPS == input$state.tab2) %>%
       group_by(Parent_Organization) %>%
       summarise_if(is.numeric, funs(sum))
-      # filter(State_FIPS == input$state.tab2 & FIPS == input$county.tab2)
   })
 
   state.top.payer.ts.tab2 <- reactive({

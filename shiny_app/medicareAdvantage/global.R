@@ -15,7 +15,6 @@ library(stringr)
 library(dplyr)
 library(readxl)
 library(tidyverse)
-library(wesanderson)
 
 options(scipen=999)
 
@@ -65,7 +64,7 @@ df <- as.data.frame(merge(df, us.map.state, by.x="State", by.y="NAME"))
 
 #Import the county enrollment data
 # df_county <- read_excel("./data/county_payer_statistics.xlsx")
-df_county <- read_excel("./data/county_payer_stats_t46mo.xlsx")
+df_county <- read_excel("./data/county_payer_stats_t48mo.xlsx")
 
 df.population <- read_csv("./data/PEP_2018_PEPAGESEX_with_ann.csv")
 df.population$est72018sex0_age65to69 <- as.numeric(as.factor(df.population$est72018sex0_age65to69))
