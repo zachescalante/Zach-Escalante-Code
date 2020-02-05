@@ -181,17 +181,27 @@ shinyServer(function(input, output, session) {
                              choices = unique(x))
   })
   
-  #### PANEL: TAB 4, RHS, INPUT: "state.tab4", UPDATE: "county.tab4" #####
   observeEvent(input$state.tab4, {
-    df_county_update <- df_county %>%
-      filter(State_FIPS == input$state.tab4)
-    
-    df_county_update <- unique(df_county_update$FIPS)
+    eligible.update <- df.eligible %>%
+      filter(FIPSST == input$state.tab4)
     
     updateSelectizeInput(session, "county.tab4",
-                         choices = unique(df_county_update),
-                         server = TRUE)
+                         choices = unique(eligible.update$FIPS),
+                         server = TRUE)   
+    
   })
+  
+  ##### PANEL: TAB 4, RHS, INPUT: "state.tab4", UPDATE: "county.tab4" #####
+  #observeEvent(input$state.tab4, {
+  #  df_county_update <- df_county %>%
+  #    filter(State_FIPS == input$state.tab4)
+  #  
+  #  df_county_update <- unique(df_county_update$FIPS)
+  #  
+  #  updateSelectizeInput(session, "county.tab4",
+  #                       choices = unique(df_county_update),
+  #                       server = TRUE)
+  #})
   
   ######## DATA TABLES ########
   

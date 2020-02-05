@@ -73,6 +73,14 @@ pct.to.number<- function(x){
   x_replace_pct<-sub("%", "", x)
   x_as_numeric<-as.numeric(x_replace_pct)
 }
+#Clean up
+pad.fips <- function(x){
+  ifelse (nchar(x) == 4, paste0('0', x), paste0('', x)) 
+}
+#Clean up
+pad.state <- function(x){
+  ifelse (nchar(x) == 1, paste0('0', x), paste0('', x)) 
+}
 
 number.to.string <- function(x){
   ifelse (nchar(x) == 4, paste0('0500000US0', x), paste0('0500000US', x))
@@ -80,5 +88,7 @@ number.to.string <- function(x){
 
 df.eligible <- read_csv("./data/State_County_Penetration_MA_2020_01.csv")
 df.eligible$Penetration <- pct.to.number(df.eligible$Penetration)
-df.eligible$FIPS <- as.character(df.eligible$FIPS)
+#df.eligible$FIPS <- as.character(df.eligible$FIPS)
+df.eligible$FIPS <- pad.fips(as.character(df.eligible$FIPS))
+df.eligible$FIPSST <- pad.state(as.character(df.eligible$FIPSST))
 df.eligible$GEO.id <- number.to.string(df.eligible$FIPS)
