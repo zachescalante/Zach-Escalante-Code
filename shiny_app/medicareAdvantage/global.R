@@ -69,5 +69,16 @@ df_county <- read_excel("./data/county_payer_stats_t48mo.xlsx")
 df.population <- read_csv("./data/PEP_2018_PEPAGESEX_with_ann.csv")
 df.population$est72018sex0_age65to69 <- as.numeric(as.factor(df.population$est72018sex0_age65to69))
 
+pct.to.number<- function(x){
+  x_replace_pct<-sub("%", "", x)
+  x_as_numeric<-as.numeric(x_replace_pct)
+}
 
+number.to.string <- function(x){
+  ifelse (nchar(x) == 4, paste0('0500000US0', x), paste0('0500000US', x))
+}
 
+df.eligible <- read_csv("./data/State_County_Penetration_MA_2020_01.csv")
+df.eligible$Penetration <- pct.to.number(df.eligible$Penetration)
+df.eligible$FIPS <- as.character(df.eligible$FIPS)
+df.eligible$GEO.id <- number.to.string(df.eligible$FIPS)

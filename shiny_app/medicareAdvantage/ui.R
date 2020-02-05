@@ -35,18 +35,19 @@ month <-
     "December"
   )
 
-month_v2 <- c("July-2019",
-              "May-2019",
-              "February-2019",
-              "September-2018",
-              "August-2018",
-              "December-2018",
-              "November-2018",
-              "March-2019",
-              "October-2018",
-              "June-2019",
-              "January-2019",
-              "April-2019" 
+month_v2 <- c(
+  "July-2019",
+  "May-2019",
+  "February-2019",
+  "September-2018",
+  "August-2018",
+  "December-2018",
+  "November-2018",
+  "March-2019",
+  "October-2018",
+  "June-2019",
+  "January-2019",
+  "April-2019"
 )
 
 states <-
@@ -121,55 +122,53 @@ navbarPage(
       ######## ABSOLUTE PANELS ########
       
       ######## PANEL: TAB 1, RHS ########
-
-        absolutePanel(
-          id = "controls",
-          class = "panel panel-default",
-          fixed = TRUE,
-          draggable = TRUE,
-          top = 65,
-          left = "auto",
-          right = 10,
-          bottom = "auto",
-          width = 330,
-          height = 560,
-          
-          h4("State Level Analysis"),
-          radioButtons(
-            inputId = "scale_state",
-            label = "Type",
-            choices = c("Count", "Percent"),
-            inline = TRUE
-          ),
-          
-          selectInput(
-            'date.tab1.rhs',
-            'Select a Month',
-            choices = month_v2
-          ),
-          
-          selectizeInput(
-            'market.county',
-            'Select Demographic',
-            choices = vars,
-            options = list(
-              placeholder = 'Choose an option',
-              onInitialize = I('function() { this.setValue(""); }')
-            )
-          ),
-          selectizeInput(
-            'select_state',
-            'Select State',
-            choices = states,
-            options = list(
-              placeholder = 'Choose an option',
-              onInitialize = I('function() { this.setValue(""); }')
-            )
-          ),
-          #textOutput("TestText"),
-          plotOutput("county.market", height = 230, width = 270),
-          div(DT::dataTableOutput('county.totals.tab1'), style = "font-size: 75%; width: 75%")
+      
+      absolutePanel(
+        id = "controls",
+        class = "panel panel-default",
+        fixed = TRUE,
+        draggable = TRUE,
+        top = 65,
+        left = "auto",
+        right = 10,
+        bottom = "auto",
+        width = 330,
+        height = 560,
+        
+        h4("State Level Analysis"),
+        radioButtons(
+          inputId = "scale_state",
+          label = "Type",
+          choices = c("Count", "Percent"),
+          inline = TRUE
         ),
+        
+        selectInput('date.tab1.rhs',
+                    'Select a Month',
+                    choices = month_v2),
+        
+        selectizeInput(
+          'market.county',
+          'Select Demographic',
+          choices = vars,
+          options = list(
+            placeholder = 'Choose an option',
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        selectizeInput(
+          'select_state',
+          'Select State',
+          choices = states,
+          options = list(
+            placeholder = 'Choose an option',
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        #textOutput("TestText"),
+        plotOutput("county.market", height = 230, width = 270),
+        div(DT::dataTableOutput('county.totals.tab1'), style = "font-size: 75%; width: 75%")
+      ),
       
       ######## PANEL: TAB 1, LHS ########
       absolutePanel(
@@ -182,7 +181,8 @@ navbarPage(
         right = "auto",
         bottom = "auto",
         width = 330,
-        height = 560,#"auto",
+        height = 560,
+        #"auto",
         
         h4("Medicare Market Analysis"),
         radioButtons(
@@ -192,23 +192,9 @@ navbarPage(
           inline = TRUE
         ),
         
-        # selectizeInput(
-        #   'year_us',
-        #   'Select year',
-        #   choices = c("2018", "2019"),
-        #   options = list(
-        #     placeholder = 'Choose an option',
-        #     onInitialize = I('function() { this.setValue("2019"); }')
-        #   )
-        # ),
-        # IMPROVEMENT: Make this an automatically generated list from the df$Date column
-        # IMPROVEMENT: Order the dates in descending order
-        # IMPROVEMENT: cutoff months to 3 characters (Jan, Feb, Mar, etc)
-        selectInput(
-          'month_us',
-          'Select Month',
-          choices = month_v2
-          ),
+        selectInput('month_us',
+                    'Select Month',
+                    choices = month_v2),
         
         selectizeInput(
           'medicare.type',
@@ -228,77 +214,78 @@ navbarPage(
     'Analysis by State',
     div(
       class = "outer",
-      tags$head(
-        includeCSS("style.css"),
-        includeScript("gomap.js")
+      tags$head(includeCSS("style.css"),
+                includeScript("gomap.js")),
+      leafletOutput("stateMap", width = "100%", height = "100%"),
+      
+      ######## PANEL: TAB 2, LHS ########
+      absolutePanel(
+        id = "controls",
+        class = "panel panel-default",
+        fixed = TRUE,
+        draggable = TRUE,
+        top = 65,
+        left = 55,
+        right = "auto",
+        bottom = "auto",
+        width = 430,
+        height = 560,
+        
+        selectizeInput(
+          'state.tab2',
+          h4("Select State"),
+          choices = states,
+          options = list(
+            placeholder = "Choose an option",
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        plotOutput("top.10.payers.tab2", height = 250, width = 370),
+        plotOutput ('state.top.payers.ts.graph'),
+        plotOutput ('state.ts.perc.chg.graph')
+        
       ),
-    leafletOutput("stateMap", width = "100%", height = "100%"),
-    
-    ######## PANEL: TAB 2, LHS ########
-    absolutePanel(
-      id = "controls",
-      class = "panel panel-default",
-      fixed = TRUE,
-      draggable = TRUE,
-      top = 65,
-      left = 55,
-      right = "auto",
-      bottom = "auto",
-      width = 430,
-      height = 560,
-      
-      selectizeInput(
-        'state.tab2',
-        h4("Select State"),
-        choices = states,
-        options = list(
-          placeholder = "Choose an option",
-          onInitialize = I('function() { this.setValue(""); }')
-        )
-      ),
-      plotOutput("top.10.payers.tab2", height = 250, width = 370),
-      plotOutput ('state.top.payers.ts.graph'),
-      plotOutput ('state.ts.perc.chg.graph')
-      
-    ),
-    ######## PANEL: TAB 2, RHS ########
-    absolutePanel(
-      id = "controls",
-      class = "panel panel-default",
-      fixed = TRUE,
-      draggable = TRUE,
-      top = 65,
-      left = "auto",
-      right = 10,
-      bottom = "auto",
-      width = 430,
-      height = 560,
-      
-      
-      selectizeInput(
-        "county.tab2",
-        h4("Select County"),
-        choices = c("county A", "county B"),
-        options = list(
-          placeholder = "Choose an option",
-          onInitialize = I('function() { this.setValue(""); }')
-        )
-      ),
-      plotOutput("top.10.payers.county.tab2", height = 250, width = 370),
-      plotOutput("county.top.payers.ts.graph"),
-      plotOutput("county.ts.perc.chg.graph")
+      ######## PANEL: TAB 2, RHS ########
+      absolutePanel(
+        id = "controls",
+        class = "panel panel-default",
+        fixed = TRUE,
+        draggable = TRUE,
+        top = 65,
+        left = "auto",
+        right = 10,
+        bottom = "auto",
+        width = 430,
+        height = 560,
+        
+        
+        selectizeInput(
+          "county.tab2",
+          h4("Select County"),
+          choices = c("county A", "county B"),
+          options = list(
+            placeholder = "Choose an option",
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        plotOutput(
+          "top.10.payers.county.tab2",
+          height = 250,
+          width = 370
+        ),
+        plotOutput("county.top.payers.ts.graph"),
+        plotOutput("county.ts.perc.chg.graph")
       )
     )
   ),
   ######## PANEL: TAB 3########
-  tabPanel('Enrollment Data',
-           div(
-             class = "outer",
-             tags$head(
-               includeCSS("style.css"),
-               includeScript("gomap.js")
-             )
-           ),
+  tabPanel(
+    'Enrollment Data',
+    div(class = "outer",
+        tags$head(
+          includeCSS("style.css"),
+          includeScript("gomap.js")
+        )),
     absolutePanel(
       id = "controls",
       class = "panel panel-default",
@@ -331,15 +318,84 @@ navbarPage(
         )
       ),
       #h4("Health Insurers"),
-      checkboxGroupInput("insurance.payers", h4("Health Insurers"), choices = c("Choice A", "Choice B", "Choice C"))
+      checkboxGroupInput(
+        "insurance.payers",
+        h4("Health Insurers"),
+        choices = c("Choice A", "Choice B", "Choice C")
+      )
     ),
-    mainPanel(
-      fluidRow(
-        column(9,plotOutput(outputId="county.top.payers.ts.tab3", width="500px",height="400px")), 
-        column(3,plotOutput(outputId="county.ts.perc.chg.tab3", width="500px",height="400px"))
+    mainPanel(fluidRow(
+      column(
+        9,
+        plotOutput(
+          outputId = "county.top.payers.ts.tab3",
+          width = "500px",
+          height = "400px"
         )
       ),
-    div(DT::dataTableOutput('state.county.ts.table.tab3')), style = "font-size: 75%; width: 75%")
+      column(
+        3,
+        plotOutput(
+          outputId = "county.ts.perc.chg.tab3",
+          width = "500px",
+          height = "400px"
+        )
+      )
+    )),
+    div(DT::dataTableOutput('state.county.ts.table.tab3')),
+    style = "font-size: 75%; width: 75%"
+  ),
+  
+  ######## PANEL: TAB 4########
+  tabPanel('Census Data',
+           div(
+             class = "outer",
+             tags$head(includeCSS("style.css"),
+                       includeScript("gomap.js")),
+             leafletOutput("censusMap", width = "100%", height = "100%"),
+             
+             absolutePanel(
+               id = "controls",
+               class = "panel panel-default",
+               fixed = TRUE,
+               draggable = FALSE,
+               top = 65,
+               left = "auto",
+               right = 10,
+               bottom = "auto",
+               width = 250,
+               height = 400,
+               
+               h4("Medicare Advantage Market"),
+               radioButtons(
+                 inputId = "eligible.scale",
+                 label = "Type",
+                 choices = c("Eligibles", "Penetration"),
+                 inline = TRUE
+               ),
+               
+               selectizeInput(
+                 'state.tab4',
+                 h4("Select State"),
+                 choices = states,
+                 options = list(
+                   placeholder = "Choose an option",
+                   onInitialize = I('function() { this.setValue(""); }')
+                 )
+               ),
+               selectizeInput(
+                 "county.tab4",
+                 h4("Select County"),
+                 choices = c("county A", "county B"),
+                 options = list(
+                   placeholder = "Choose an option",
+                   onInitialize = I('function() { this.setValue(""); }')
+                 )
+               )
+             )
+           )
+        )
 )
-
-#ui <- fluidPage(header)
+  
+  #ui <- fluidPage(header)
+  

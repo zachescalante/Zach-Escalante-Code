@@ -22,11 +22,21 @@ shinyServer(function(input, output, session) {
     colorQuantile(palette = "Reds", domain = df.population$est72018sex0_age65to69)
   })
   
+  pal.tab4 <- reactive({
+    colorQuantile(palette = "YlOrRd", domain = df.eligible[, input$eligible.scale, drop = TRUE])
+  })
+  
+  
   ### TAB 1 ###
   
   stateTotalsTab1 <- reactive({
     df %>%
       filter(County == 'TOTAL' & Date == input$month_us)
+  })
+  
+  ma.eligibles <- reactive({
+    df.eligible %>%
+      select(input$eligible.scale)
   })
   
   stateTSTab1 <- reactive({
@@ -83,6 +93,13 @@ shinyServer(function(input, output, session) {
       filter(State_FIPS == input$state.tab3 & FIPS == input$county.tab3) %>%
       group_by(Parent_Organization) %>%
       summarise_if(is.numeric, funs(sum))
+  })
+  
+  #### PANEL: TAB 4, Main Panel####
+  county.eligibles.tab4 <- reactive({
+    req(input$state.tab4)
+    df.eligible %>%
+      filter(FIPSST == input$state.tab4)
   })
   
   
@@ -162,6 +179,18 @@ shinyServer(function(input, output, session) {
     
     updateCheckboxGroupInput(session, "insurance.payers",
                              choices = unique(x))
+  })
+  
+  #### PANEL: TAB 4, RHS, INPUT: "state.tab4", UPDATE: "county.tab4" #####
+  observeEvent(input$state.tab4, {
+    df_county_update <- df_county %>%
+      filter(State_FIPS == input$state.tab4)
+    
+    df_county_update <- unique(df_county_update$FIPS)
+    
+    updateSelectizeInput(session, "county.tab4",
+                         choices = unique(df_county_update),
+                         server = TRUE)
   })
   
   ######## DATA TABLES ########
@@ -295,6 +324,45 @@ shinyServer(function(input, output, session) {
                   smoothFactor = 0.2,
                   fillOpacity = 0.3) %>%
       addPolygons(data = county.df[which(county.df$STATEFP == input$state.tab2 & county.df$GEOID == input$county.tab2), ],
+                  fillColor = "Blue",
+                  stroke = FALSE,
+                  smoothFactor = 0.2,
+                  fillOpacity = 0.3)
+  })
+  
+  output$censusMap <- renderLeaflet({
+    req(input$state.tab4)
+
+    eligible.df <- merge(us.map.county,
+                        county.eligibles.tab4()[, c("GEO.id", "Eligibles", "Penetration"), drop = TRUE],
+                       by.x = "AFFGEOID",
+                       by.y = "GEO.id")
+    eligible.df.na.omit <- eligible.df@data[complete.cases(eligible.df@data), ]
+    
+    leaflet() %>%
+      fitBounds(
+        lng1 = min(coordinates(us.map.county[which(us.map.county$STATEFP == input$state.tab4), ])[, 1]),
+        lat1 = min(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                     input$state.tab4), ])[, 2]),
+        lng2 = max(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                     input$state.tab4), ])[, 1]),
+        lat2 = max(coordinates(us.map.county[which(us.map.county$STATEFP ==
+                                                     input$state.tab4), ])[, 2])
+      ) %>%
+      addProviderTiles("Esri.WorldGrayCanvas") %>%
+      addPolygons(data = eligible.df[which(eligible.df$STATEFP == input$state.tab4), ],
+                  fillColor = ~pal.tab4()(eligible.df.na.omit[, input$eligible.scale, drop=TRUE]),
+                  stroke = FALSE,
+                  smoothFactor = 0.2,
+                  fillOpacity = 0.3,
+                  popup = paste(
+                    "Region: ",
+                    eligible.df.na.omit$NAME,
+                    "<br>",
+                    "Value: ",
+                    eligible.df.na.omit[, input$eligible.scale, drop=TRUE]
+                  )) %>%
+      addPolygons(data = eligible.df[which(eligible.df$STATEFP == input$state.tab4 & eligible.df$GEOID == input$county.tab4), ],
                   fillColor = "Blue",
                   stroke = FALSE,
                   smoothFactor = 0.2,
