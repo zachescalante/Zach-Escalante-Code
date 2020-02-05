@@ -354,7 +354,7 @@ shinyServer(function(input, output, session) {
                   fillColor = ~pal.tab4()(eligible.df.na.omit[, input$eligible.scale, drop=TRUE]),
                   stroke = FALSE,
                   smoothFactor = 0.2,
-                  fillOpacity = 0.3,
+                  fillOpacity = 0.7,
                   popup = paste(
                     "Region: ",
                     eligible.df.na.omit$NAME,
