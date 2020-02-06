@@ -363,8 +363,8 @@ navbarPage(
                left = "auto",
                right = 10,
                bottom = "auto",
-               width = 250,
-               height = 400,
+               width = 350,
+               height = 500,
                
                h4("Medicare Advantage Market"),
                radioButtons(
@@ -391,7 +391,17 @@ navbarPage(
                    placeholder = "Choose an option",
                    onInitialize = I('function() { this.setValue(""); }')
                  )
-               )
+               ),
+               selectizeInput(
+                 "census.people",
+                 h4("Select Demographic"),
+                 choices = colnames(df.people)[4:length(colnames(df.people))],
+                 options = list(
+                   placeholder = 'Please select an option below',
+                   onInitialize = I('function() { this.setValue(""); }')
+                 )
+               ),
+               valueBoxOutput('test_box')
              )
            )
         )

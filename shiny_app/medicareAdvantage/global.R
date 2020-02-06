@@ -92,3 +92,6 @@ df.eligible$Penetration <- pct.to.number(df.eligible$Penetration)
 df.eligible$FIPS <- pad.fips(as.character(df.eligible$FIPS))
 df.eligible$FIPSST <- pad.state(as.character(df.eligible$FIPSST))
 df.eligible$GEO.id <- number.to.string(df.eligible$FIPS)
+
+#Census Data
+df.people <- read_excel("./data/RuralAtlasData20.xlsx", sheet = 3)
