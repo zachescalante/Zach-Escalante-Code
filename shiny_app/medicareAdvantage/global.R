@@ -95,3 +95,4 @@ df.eligible$GEO.id <- number.to.string(df.eligible$FIPS)
 
 #Census Data
 df.people <- read_excel("./data/RuralAtlasData20.xlsx", sheet = 3)
+df.income <- read_excel("./data/RuralAtlasData20.xlsx", sheet = 6)

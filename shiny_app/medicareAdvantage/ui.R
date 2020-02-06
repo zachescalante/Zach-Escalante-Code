@@ -347,65 +347,78 @@ navbarPage(
   ),
   
   ######## PANEL: TAB 4########
-  tabPanel('Census Data',
-           div(
-             class = "outer",
-             tags$head(includeCSS("style.css"),
-                       includeScript("gomap.js")),
-             leafletOutput("censusMap", width = "100%", height = "100%"),
-             
-             absolutePanel(
-               id = "controls",
-               class = "panel panel-default",
-               fixed = TRUE,
-               draggable = FALSE,
-               top = 65,
-               left = "auto",
-               right = 10,
-               bottom = "auto",
-               width = 350,
-               height = 500,
-               
-               h4("Medicare Advantage Market"),
-               radioButtons(
-                 inputId = "eligible.scale",
-                 label = "Type",
-                 choices = c("Eligibles", "Penetration"),
-                 inline = TRUE
-               ),
-               
-               selectizeInput(
-                 'state.tab4',
-                 h4("Select State"),
-                 choices = states,
-                 options = list(
-                   placeholder = "Choose an option",
-                   onInitialize = I('function() { this.setValue(""); }')
-                 )
-               ),
-               selectizeInput(
-                 "county.tab4",
-                 h4("Select County"),
-                 choices = c("county A", "county B"),
-                 options = list(
-                   placeholder = "Choose an option",
-                   onInitialize = I('function() { this.setValue(""); }')
-                 )
-               ),
-               selectizeInput(
-                 "census.people",
-                 h4("Select Demographic"),
-                 choices = colnames(df.people)[4:length(colnames(df.people))],
-                 options = list(
-                   placeholder = 'Please select an option below',
-                   onInitialize = I('function() { this.setValue(""); }')
-                 )
-               ),
-               valueBoxOutput('test_box')
-             )
-           )
-        )
+  tabPanel(
+    'Census Data',
+    div(
+      class = "outer",
+      tags$head(includeCSS("style.css"),
+                includeScript("gomap.js")),
+      leafletOutput("censusMap", width = "100%", height = "100%"),
+      
+      absolutePanel(
+        id = "controls",
+        class = "panel panel-default",
+        fixed = TRUE,
+        draggable = FALSE,
+        top = 65,
+        left = "auto",
+        right = 10,
+        bottom = "auto",
+        width = 350,
+        height = 500,
+        
+        h4("Medicare Advantage Market"),
+        radioButtons(
+          inputId = "eligible.scale",
+          label = "Type",
+          choices = c("Eligibles", "Penetration"),
+          inline = TRUE
+        ),
+        
+        selectizeInput(
+          'state.tab4',
+          h4("Select State"),
+          choices = states,
+          options = list(
+            placeholder = "Choose an option",
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        selectizeInput(
+          "county.tab4",
+          h4("Select County"),
+          choices = c("county A", "county B"),
+          options = list(
+            placeholder = "Choose an option",
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        selectizeInput(
+          "census.people",
+          h4("Select Demographic"),
+          choices = colnames(df.people)[4:length(colnames(df.people))],
+          options = list(
+            placeholder = 'Please select an option below',
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        
+        tags$h1(valueBoxOutput("people.census.tab4", width = 8), style =
+                  "color:blue;"),
+        selectizeInput(
+          "census.income",
+          h4("Select Income Measure"),
+          choices = colnames(df.income)[4:length(colnames(df.income))],
+          options = list(
+            placeholder = 'Please select an option below',
+            onInitialize = I('function() { this.setValue(""); }')
+          )
+        ),
+        tags$h1(valueBoxOutput("people.income.tab4", width = 8), style =
+                  "color:blue;")
+      )
+    )
+  )
 )
-  
-  #ui <- fluidPage(header)
-  
+
+#ui <- fluidPage(header)

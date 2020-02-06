@@ -102,6 +102,23 @@ shinyServer(function(input, output, session) {
       filter(FIPSST == input$state.tab4)
   })
   
+  #### PANEL: TAB 4, RHS Panel####
+  county.census.tab4 <- reactive({
+    req(input$census.people)
+    req(input$state.tab4)
+    df.people %>%
+      filter(FIPS == input$county.tab4) %>%
+      select(input$census.people)
+  })
+  
+  #### PANEL: TAB 4, RHS Panel####
+  county.census.people.tab4 <- reactive({
+    req(input$census.income)
+    req(input$state.tab4)
+    df.income %>%
+      filter(FIPS == input$county.tab4) %>%
+      select(input$census.income)
+  })
   
   #### PANEL: TAB 1, RHS, INPUT: "TYPE", UPDATE: "SELECT DEMOGRAPHIC" #####
   observeEvent(input$scale, {
@@ -655,6 +672,22 @@ shinyServer(function(input, output, session) {
             axis.title.x=element_blank(),
             axis.title.y=element_blank(),
             plot.title = element_text(family = "Helvetica", face = "bold", size = (15), hjust = 0.5))
+  })
+  
+  ### TAB 4: census.people ###
+  output$people.census.tab4 <- renderValueBox({
+    valueBox(
+      NULL,
+      format(round(as.numeric(county.census.tab4()[[1]]), 2), nsmall=2, big.mark=","),
+    )
+  })
+  
+  ### TAB 4: census.income ###
+  output$people.income.tab4 <- renderValueBox({
+    valueBox(
+      NULL,
+      format(round(as.numeric(county.census.people.tab4()[[1]]), 2), nsmall=2, big.mark=","),
+    )
   })
   
 })
