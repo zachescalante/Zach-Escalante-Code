@@ -365,7 +365,7 @@ navbarPage(
         right = 10,
         bottom = "auto",
         width = 350,
-        height = 500,
+        height = 600,
         
         h4("Medicare Advantage Market"),
         radioButtons(

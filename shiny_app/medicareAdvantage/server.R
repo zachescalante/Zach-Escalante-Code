@@ -328,7 +328,7 @@ shinyServer(function(input, output, session) {
   output$stateMap <- renderLeaflet({
     req(input$state.tab2)
 
-    county.df <- merge(us.map.county,
+    county.df <- merge(simplified_county,
                      df.population[, c("GEO.id", "est72018sex0_age65to69"), drop = TRUE],
                      #df.population,
                      by.x = "AFFGEOID",
@@ -686,7 +686,7 @@ shinyServer(function(input, output, session) {
   output$people.income.tab4 <- renderValueBox({
     valueBox(
       NULL,
-      format(round(as.numeric(county.census.people.tab4()[[1]]), 2), nsmall=2, big.mark=","),
+      format(round(as.numeric(county.census.people.tab4()[[1]]), 2), nsmall=0, big.mark=","),
     )
   })
   

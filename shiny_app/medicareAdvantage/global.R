@@ -23,7 +23,7 @@ options(scipen=999)
 us.map.county <- readOGR(dsn= './cb_2018_us_county_500k', layer = "cb_2018_us_county_500k", stringsAsFactors = FALSE)
 
 # Remove Alaska(2), Hawaii(15), Puerto Rico (72), Guam (66), Virgin Islands (78), American Samoa (60) Mariana Islands (69), Micronesia (64), Marshall Islands (68), Palau (70), Minor Islands (74)
-us.map.county <- us.map.county[!us.map.county$STATEFP %in% c("02", "15", "72", "66", "78", "60", "69","64", "68", "70", "74"),]
+us.map.county <- us.map.county[!us.map.county$STATEFP %in% c("15", "72", "66", "78", "60", "69","64", "68", "70", "74"),]
 
 # Make sure other outling islands are removed.
 us.map.county <- us.map.county[!us.map.county$STATEFP %in% c("81", "84", "86", "87", "89", "71", "76","95", "79"),]
@@ -31,13 +31,13 @@ us.map.county <- us.map.county[!us.map.county$STATEFP %in% c("81", "84", "86", "
 simplified_shp <- gSimplify(us.map.county, tol = 0.0125, topologyPreserve = FALSE)
 simplified_county <- SpatialPolygonsDataFrame(simplified_shp, data = us.map.county@data)
 
-#format(object.size(simplified), units = "Mb")
+format(object.size(simplified_county), units = "Mb")
 
 #State shape files
 us.map.state <- readOGR(dsn= './cb_2018_us_state_500k', layer = "cb_2018_us_state_500k", stringsAsFactors = FALSE)
 
 # Remove Alaska(2), Hawaii(15), Puerto Rico (72), Guam (66), Virgin Islands (78), American Samoa (60) Mariana Islands (69), Micronesia (64), Marshall Islands (68), Palau (70), Minor Islands (74)
-us.map.state <- us.map.state[!us.map.state$STATEFP %in% c("02", "15", "72", "66", "78", "60", "69","64", "68", "70", "74"),]
+us.map.state <- us.map.state[!us.map.state$STATEFP %in% c("15", "72", "66", "78", "60", "69","64", "68", "70", "74"),]
 
 # Make sure other outling islands are removed.
 us.map.state <- us.map.state[!us.map.state$STATEFP %in% c("81", "84", "86", "87", "89", "71", "76","95", "79"),]
