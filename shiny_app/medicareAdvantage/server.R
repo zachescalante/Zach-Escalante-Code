@@ -61,7 +61,7 @@ shinyServer(function(input, output, session) {
       select (-c(FIPS))
     # Make sure to drop unnecessary columns
     # Take the top-10 payers by market share
-    county.df <- head(county.df, 10)
+    county.df <- head(county.df, 6)
     
   })
   
@@ -82,7 +82,7 @@ shinyServer(function(input, output, session) {
       select (-c(FIPS))
     # Make sure to drop unnecessary columns
     # Take the top-10 payers by market share
-    county.df <- head(county.df, 10)
+    county.df <- head(county.df, 6)
     
   })
   
@@ -464,8 +464,8 @@ shinyServer(function(input, output, session) {
   #### TAB 2: LHS, top.10.payers.tab2 #####
   output$top.10.payers.tab2 <- renderPlot({
     
-    top_10_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 10)[[3]]
-    labels_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 10)[[1]]
+    top_10_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 6)[[3]]
+    labels_payers = head(state.TS.Tab2()[ order(state.TS.Tab2()[[3]], decreasing = TRUE),], 6)[[1]]
     
     df <- data.frame(top.payers=top_10_payers,
                      payer.labels=labels_payers)
@@ -490,8 +490,8 @@ shinyServer(function(input, output, session) {
   #### TAB 2: RHS, top.10.payers.county.tab2 #####
   output$top.10.payers.county.tab2 <- renderPlot({
     
-    top_10_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 10)[[3]]
-    labels_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 10)[[1]]
+    top_10_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 6)[[3]]
+    labels_payers = head(county.ts.tab2()[ order(county.ts.tab2()[[3]], decreasing = TRUE),], 6)[[1]]
     
     df <- data.frame(top.payers=top_10_payers,
                      payer.labels=labels_payers)
