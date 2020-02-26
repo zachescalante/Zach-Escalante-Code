@@ -57,8 +57,8 @@ shinyServer(function(input, output, session) {
     req(state.TS.Tab2())
     # Use dplyr to sort by last month's numbers
     county.df <- state.TS.Tab2() %>%
-      arrange(desc(!! sym(colnames(state.TS.Tab2()[3])))) %>%  # sort based on last months' values
-      select (-c(FIPS))
+      arrange(desc(!! sym(colnames(state.TS.Tab2()[3]))))# %>%  # sort based on last months' values
+      #select (-c(FIPS))
     # Make sure to drop unnecessary columns
     # Take the top-10 payers by market share
     county.df <- head(county.df, 6)
@@ -78,8 +78,8 @@ shinyServer(function(input, output, session) {
     req(county.ts.tab2())
     # Use dplyr to sort by last month's numbers
     county.df <- county.ts.tab2() %>%
-      arrange(desc(!! sym(colnames(county.ts.tab2()[3])))) %>%  # sort based on last months' values
-      select (-c(FIPS))
+      arrange(desc(!! sym(colnames(county.ts.tab2()[3])))) #%>%  # sort based on last months' values
+      #select (-c(FIPS))
     # Make sure to drop unnecessary columns
     # Take the top-10 payers by market share
     county.df <- head(county.df, 6)
@@ -647,8 +647,8 @@ shinyServer(function(input, output, session) {
     req(input$insurance.payers)
     
     county.data.filter <- state.county.ts.tab3() %>%
-      filter(Parent_Organization %in% input$insurance.payers) %>%
-      select(-c("FIPS"))
+      filter(Parent_Organization %in% input$insurance.payers)# %>%
+      #select(-c("FIPS"))
     
     # Create ggplot2 graph
     county.data.melt <- melt(county.data.filter, id="Parent_Organization")
